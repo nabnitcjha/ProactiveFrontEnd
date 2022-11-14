@@ -42,9 +42,9 @@
 <aside id="sidebar" class="sidebar">
 
 <!-- Start Sidebar-->
-<admin-sidebar v-if="roleName=='admin'"/>
-<student-sidebar v-if="roleName=='student'"/>
-<teacher-sidebar v-if="roleName=='teacher'"/>
+<admin-sidebar v-if="getLoginInfo.user.role[0]=='admin'"/>
+<student-sidebar v-if="getLoginInfo.user.role[0]=='student'"/>
+<teacher-sidebar v-if="getLoginInfo.user.role[0]=='teacher'"/>
 <!-- End Sidebar-->
 </aside>
 
