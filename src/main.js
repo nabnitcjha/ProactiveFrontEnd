@@ -9,10 +9,12 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import Fragment from "vue-fragment";
 import { Plugin } from "vue-fragment";
 import { createPinia, PiniaVuePlugin } from "pinia";
+import piniaPersist from 'pinia-plugin-persist'
 
 
 Vue.use(PiniaVuePlugin);
 const pinia = createPinia();
+pinia.use(piniaPersist)
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
