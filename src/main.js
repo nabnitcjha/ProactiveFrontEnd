@@ -8,6 +8,9 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import Fragment from 'vue-fragment'
+Vue.use(Fragment.Plugin)
+
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
@@ -22,6 +25,7 @@ Vue.use(PiniaVuePlugin)
 const pinia = createPinia()
 
 new Vue({
+  components: { Fragment },
   router,
   pinia,
   render: (h) => h(App)
