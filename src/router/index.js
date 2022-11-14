@@ -1,20 +1,63 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../components/Login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'log-in',
+    component: Login
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    component: () => import('../views/About.vue')
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../views/Dashboard.vue')
+  },
+  // student
+  {
+    path: '/add-student',
+    name: 'addStudent',
+    component: () => import('../views/form/student/AddStudent.vue')
+  },
+  {
+    path: '/edit-student',
+    name: 'editStudent',
+    component: () => import('../views/form/student/EditStudent.vue')
+  },
+  // teacher
+  {
+    path: '/add-teacher',
+    name: 'addTeacher',
+    component: () => import('../views/form/teacher/AddTeacher.vue')
+  },
+  {
+    path: '/edit-teacher',
+    name: 'editTeacher',
+    component: () => import('../views/form/teacher/EditTeacher.vue')
+  },
+  // subject
+  {
+    path: '/add-subject',
+    name: 'addSubject',
+    component: () => import('../views/form/subject/AddSubject.vue')
+  },
+  {
+    path: '/edit-subject',
+    name: 'editSubject',
+    component: () => import('../views/form/subject/EditSubject.vue')
+  },
+  // class schedule
+  {
+    path: '/add/class-schedule',
+    name: 'addClassSchedule',
+    component: () => import('../views/form/classSchedule/AddClassSchedule.vue')
+  },
+  {
+    path: '/edit/class-schedule',
+    name: 'editClassSchedule',
+    component: () => import('../views/form/classSchedule/EditClassSchedule.vue')
   }
 ]
 
