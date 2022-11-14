@@ -70,8 +70,7 @@
 </fragment>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
+<script>
 import { loginInfoStore } from '../../stores/loginInfo';
 import ProfileNav from './ProfileNav.vue';
 import AdminSidebar from './sidebar/AdminSidebar.vue';
@@ -79,14 +78,26 @@ import StudentSidebar from './sidebar/StudentSidebar.vue';
 import TeacherSidebar from './sidebar/TeacherSidebar.vue';
 import BreadCrumb from './BreadCrumb.vue';
 import Footer from './Footer.vue';
+import {mapState,mapActions} from 'pinia'
 
-// reactive state
-const loginInfo = loginInfoStore()
-let role = loginInfo.getLoginInfo.user.role[0]
-const roleName = ref(role)
-
- 
-// lifecycle hooks
-onMounted(() => {
-})
+export default {
+    data: function () {
+        return {
+        };
+    },
+    components: {
+     ProfileNav,
+     AdminSidebar,
+     StudentSidebar,
+     TeacherSidebar,
+     BreadCrumb,
+     Footer
+  },
+    computed: {
+    ...mapState(loginInfoStore, ['getLoginInfo']),
+  },
+    methods: {
+        ...mapActions(loginInfoStore, ['setLoginInfo']),
+    } 
+};
 </script>
