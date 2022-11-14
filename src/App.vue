@@ -1,7 +1,7 @@
 <template>
     <fragment>
       <log-in v-if="!isAuthenticate" />
-      <main-component v-else :userType='userType' />
+      <main-component v-else />
   </fragment>
 </template>
 
@@ -9,12 +9,11 @@
 import LogIn from './components/Login.vue'
 import { loginInfoStore } from './stores/loginInfo';
 import MainComponent from "./components/dashboard/Main.vue";
-import { mapState, mapActions } from 'pinia'
+import { mapState } from 'pinia'
 
 export default {
   data: function () {
     return {
-      userType: ''
     };
   },
   components: {
@@ -22,10 +21,9 @@ export default {
     'main-component': MainComponent
   },
   computed: {
-    ...mapState(loginInfoStore, ['getLoginInfo', 'isAuthenticate']),
+    ...mapState(loginInfoStore, ['isAuthenticate']),
   },
   mounted() {
-    this.userType = this.getLoginInfo.user.role[0]
   }
 };
 </script>

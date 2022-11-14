@@ -1,29 +1,35 @@
 <template>
-  <admin-dashboard v-if="userType=='admin'" />
-  <teacher-dashboard v-else-if="userType == 'teacher'" />
-  <student-dashboard v-else-if="userType == 'student'" />
+  <admin-dashboard  v-if="getLoginInfo.user.role[0]=='admin'" />
+  <teacher-dashboard v-else-if="getLoginInfo.user.role[0] == 'teacher'" />
+  <student-dashboard v-else-if="getLoginInfo.user.role[0] == 'student'" />
   <parent-dashboard v-else />
 </template>
   
-<script setup>
-import { ref, onMounted } from 'vue'
+<script>
 import AdminDashboard from '../components/dashboard/dashboard/AdminDashboard.vue'
 import TeacherDashboard from '../components/dashboard/dashboard/TeacherDashboard.vue'
 import StudentDashboard from '../components/dashboard/dashboard/StudentDashboard.vue'
 import ParentDashboard from '../components/dashboard/dashboard/ParentDashboard.vue'
 
 import { loginInfoStore } from '../stores/loginInfo.js'
-import { mapState } from 'pinia'
+import { mapState , mapActions} from 'pinia'
 
-// reactive state
-const loginInfo = loginInfoStore()
-let role = loginInfo.getLoginInfo.user.role[0]
-
-const userType = ref(role)
-
- 
-
-// lifecycle hooks
-onMounted(() => {
-})
+export default {
+    data: function () {
+        return {
+        };
+    },
+    components: {
+      AdminDashboard,
+      TeacherDashboard,
+      StudentDashboard,
+      ParentDashboard
+  },
+    computed: {
+    ...mapState(loginInfoStore, ['getLoginInfo']),
+  },
+    methods: {
+        ...mapActions(loginInfoStore, ['setLoginInfo']),
+    } 
+};
 </script>
