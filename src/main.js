@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 import connectAPI from './connectAPI'
+import Multiselect from 'vue-multiselect'
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import {
   ValidationObserver,
@@ -23,6 +24,7 @@ localize("en", en);
 // Install VeeValidate components globally
 Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
+Vue.component('multiselect', Multiselect)
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";

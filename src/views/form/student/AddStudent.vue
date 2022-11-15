@@ -1,85 +1,109 @@
 <template>
-    <div>
-      <validation-observer ref="observer" v-slot="{ handleSubmit }">
-        <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
-          <validation-provider
-            name="Name"
-            :rules="{ required: true, min: 3 }"
-            v-slot="validationContext"
-          >
-            <b-form-group id="example-input-group-1" label="Name" label-for="example-input-1">
-              <b-form-input
-                id="example-input-1"
-                name="example-input-1"
-                v-model="form.name"
-                :state="getValidationState(validationContext)"
-                aria-describedby="input-1-live-feedback"
-              ></b-form-input>
-  
-              <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
-            </b-form-group>
-          </validation-provider>
-  
-          <validation-provider name="Food" :rules="{ required: true }" v-slot="validationContext">
-            <b-form-group id="example-input-group-2" label="Food" label-for="example-input-2">
-              <b-form-select
-                id="example-input-2"
-                name="example-input-2"
-                v-model="form.food"
-                :options="foods"
-                :state="getValidationState(validationContext)"
-                aria-describedby="input-2-live-feedback"
-              ></b-form-select>
-  
-              <b-form-invalid-feedback id="input-2-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
-            </b-form-group>
-          </validation-provider>
-  
-          <b-button type="submit" variant="primary">Submit</b-button>
-          <b-button class="ml-2" @click="resetForm()">Reset</b-button>
-        </b-form>
-      </validation-observer>
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Custom Styled Validation with Tooltips</h5>
+          <p>If your form layout allows it, you can swap the <code>.{valid|invalid}-feedback</code> classes for
+            .<code>{valid|invalid}-tooltip</code> classes to display validation feedback in a styled tooltip. Be
+            sure to have a parent with <code>position: relative</code> on it for tooltip positioning. In the
+            example below, our column classes have this already, but your project may require an alternative
+            setup. </p>
+
+          <!-- Custom Styled Validation with Tooltips -->
+          <form class="row g-3 needs-validation" novalidate @submit="addStudent">
+            <div class="col-md-4 position-relative">
+              <label for="validationTooltip01" class="form-label">First name</label>
+              <input type="text" class="form-control" id="validationTooltip01" value="John" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 position-relative">
+              <label for="validationTooltip02" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="validationTooltip02" value="Doe" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4 position-relative">
+              <label for="validationTooltipUsername" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                <input type="text" class="form-control" id="validationTooltipUsername"
+                  aria-describedby="validationTooltipUsernamePrepend" required>
+                <div class="invalid-tooltip">
+                  Please choose a unique and valid username.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 position-relative">
+              <label for="validationTooltip03" class="form-label">City</label>
+              <input type="text" class="form-control" id="validationTooltip03" required>
+              <div class="invalid-tooltip">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-3 position-relative">
+              <label for="validationTooltip04" class="form-label">State</label>
+              <select class="form-select" id="validationTooltip04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+              </select>
+              <div class="invalid-tooltip">
+                Please select a valid state.
+              </div>
+            </div>
+            <div class="col-md-3 position-relative">
+              <label for="validationTooltip05" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="validationTooltip05" required>
+              <div class="invalid-tooltip">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form><!-- End Custom Styled Validation with Tooltips -->
+
+        </div>
+      </div>
+
     </div>
-  </template>
-  
-  <style>
-  body {
-    padding: 1rem;
-  }
-  </style>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        foods: [
-          { value: null, text: "Choose..." },
-          { value: "apple", text: "Apple" },
-          { value: "orange", text: "Orange" }
-        ],
-        form: {
-          name: null,
-          food: null
-        }
-      };
-    },
-    methods: {
-      getValidationState({ dirty, validated, valid = null }) {
-        return dirty || validated ? valid : null;
-      },
-      resetForm() {
-        this.form = {
-          name: null,
-          food: null
-        };
-  
-        this.$nextTick(() => {
-          this.$refs.observer.reset();
-        });
-      },
-      onSubmit() {
-        alert("Form submitted!");
-      }
+  </div>
+</template>
+
+<style>
+body {
+  padding: 1rem;
+}
+</style>
+
+<script>
+export default {
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+    addStudent(e) {
+      e.preventDefault();
+      var needsValidation = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(needsValidation)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
     }
-  };
-  </script>
+  }
+};
+</script>
