@@ -5,73 +5,71 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Add Student and Parent Information</h5>
-          <!-- Custom Styled Validation with Tooltips -->
-
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="student_first_name" class="form-label">First name</label>
-              <input type="text" class="form-control" id="student_first_name"  required>
+              <input type="text" class="form-control" id="student_first_name" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a fist name.
-                </div>
+                Please choose a fist name.
+              </div>
             </div>
 
             <div class="col-md-4">
               <label for="student_last_name" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="student_last_name"  required>
+              <input type="text" class="form-control" id="student_last_name" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a last name.
-                </div>
+                Please choose a last name.
+              </div>
             </div>
 
             <div class="col-md-4">
               <label for="student_phone" class="form-label">Phone</label>
-              <input type="text" class="form-control" id="student_phone"  required>
+              <input type="text" class="form-control" id="student_phone" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a phone.
-                </div>
+                Please choose a phone.
+              </div>
             </div>
 
             <div class="col-md-4">
               <label for="student_email" class="form-label">Email</label>
-              <input type="text" class="form-control" id="student_email"  required>
+              <input type="text" class="form-control" id="student_email" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a email.
-                </div>
+                Please choose a email.
+              </div>
             </div>
 
             <div class="col-md-4">
               <label for="Student_dob" class="form-label">DOB</label>
-              <input type="date" class="form-control" id="Student_dob"  required>
+              <input type="date" class="form-control" id="Student_dob" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a date of birth.
-                </div>
+                Please choose a date of birth.
+              </div>
             </div>
 
             <div class="col-md-4">
               <label for="student_address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="student_address"  required>
+              <input type="text" class="form-control" id="student_address" required>
               <div class="valid-feedback">
                 Looks good!
               </div>
               <div class="invalid-feedback">
-                  Please choose a address.
-                </div>
+                Please choose a address.
+              </div>
             </div>
             <div class="col-12">
               <button class="btn btn-primary" type="submit" @click.stop="addStudent">Submit form</button>
