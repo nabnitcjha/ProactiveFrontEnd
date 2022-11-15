@@ -72,8 +72,74 @@
                 Please choose a address.
               </div>
             </div>
-            <h5 class="card-title">Parent Info</h5>
+            <h5 class="add-parent-title card-title ml-3">Parent Info</h5>
+            <hr class="hr-parent ml-3">
             <!-- Parent Info Start -->
+            <div class="col-md-4">
+              <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
+              <input type="text" class="form-control" id="student_first_name" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a fist name.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
+              <input type="text" class="form-control" id="student_last_name" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a last name.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
+              <input type="text" class="form-control" id="student_phone" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a phone.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
+              <input type="text" class="form-control" id="student_email" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a email.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
+              <input type="date" class="form-control" id="Student_dob" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a date of birth.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
+              <input type="text" class="form-control" id="student_address" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a address.
+              </div>
+            </div>
             <!-- Parent Info End -->
 
             <div class="col-12">
