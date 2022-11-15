@@ -5,6 +5,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Student Info</h5>
+          <hr class="hr-color">
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
@@ -71,6 +72,10 @@
                 Please choose a address.
               </div>
             </div>
+            <h5 class="card-title">Parent Info</h5>
+            <!-- Parent Info Start -->
+            <!-- Parent Info End -->
+
             <div class="col-12">
               <button class="btn btn-primary" type="submit" @click.stop="addStudent">Submit form</button>
             </div>
@@ -103,16 +108,16 @@ import {
 export default {
   data() {
     return {
-      icons:{ 
-      First_name: First_name,
-      Last_name: Last_name,
-      Phone: Phone,
-      Email: Email,
-      Dob: Dob,
-      Address: Address,
-      Country: Country,
-      State: State
-    }
+      icons: {
+        First_name: First_name,
+        Last_name: Last_name,
+        Phone: Phone,
+        Email: Email,
+        Dob: Dob,
+        Address: Address,
+        Country: Country,
+        State: State
+      }
     };
   },
   methods: {
