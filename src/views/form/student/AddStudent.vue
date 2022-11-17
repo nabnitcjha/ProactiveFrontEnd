@@ -20,7 +20,7 @@
 
             <div class="col-md-4">
               <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
-              <input type="text" class="form-control" id="student_last_name" required  v-model="student.Last_name">
+              <input type="text" class="form-control" id="student_last_name" required v-model="student.Last_name">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -31,7 +31,7 @@
 
             <div class="col-md-4">
               <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
-              <input type="text" class="form-control" id="student_phone" required  v-model="student.Phone">
+              <input type="text" class="form-control" id="student_phone" required v-model="student.Phone">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -42,7 +42,7 @@
 
             <div class="col-md-4">
               <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
-              <input type="text" class="form-control" id="student_email" required  v-model="student.Email">
+              <input type="text" class="form-control" id="student_email" required v-model="student.Email">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -53,7 +53,7 @@
 
             <div class="col-md-4">
               <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
-              <input type="date" class="form-control" id="Student_dob" required  v-model="student.Dob">
+              <input type="date" class="form-control" id="Student_dob" required v-model="student.Dob">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -64,7 +64,7 @@
 
             <div class="col-md-4">
               <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
-              <input type="text" class="form-control" id="student_address" required>
+              <input type="text" class="form-control" id="student_address" required v-model="student.Address">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -75,65 +75,58 @@
             <h5 class="add-parent-title card-title ml-3">Parent Info</h5>
             <hr class="hr-parent ml-3">
             <!-- Parent Info Start -->
-            <div class="parent-info col-12">
+            <div class="parent-info col-12" v-for="(input, index) in dynamicParentList" :key="index">
               <div class="col-md-4">
-              <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
-              <input type="text" class="form-control" id="student_first_name" required>
-              <!-- <div class="valid-feedback">
+                <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First
+                  name</label>
+                <input type="text" class="form-control" id="student_first_name" required v-model="input.First_name">
+                <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
-              <div class="invalid-feedback">
-                Please choose a fist name.
+                <div class="invalid-feedback">
+                  Please choose a fist name.
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
-              <input type="text" class="form-control" id="student_last_name" required>
-              <!-- <div class="valid-feedback">
+              <div class="col-md-4">
+                <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
+                <input type="text" class="form-control" id="student_last_name" required v-model="input.Last_name">
+                <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
-              <div class="invalid-feedback">
-                Please choose a last name.
+                <div class="invalid-feedback">
+                  Please choose a last name.
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
-              <input type="text" class="form-control" id="student_phone" required>
-              <!-- <div class="valid-feedback">
+              <div class="col-md-4">
+                <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
+                <input type="text" class="form-control" id="student_phone" required v-model="input.Phone">
+                <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
-              <div class="invalid-feedback">
-                Please choose a phone.
+                <div class="invalid-feedback">
+                  Please choose a phone.
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
-              <input type="text" class="form-control" id="student_email" required>
-              <!-- <div class="valid-feedback">
+              <div class="col-md-4">
+                <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
+                <input type="text" class="form-control" id="student_email" required v-model="input.Email">
+                <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
-              <div class="invalid-feedback">
-                Please choose a email.
+                <div class="invalid-feedback">
+                  Please choose a email.
+                </div>
               </div>
-            </div>
-            <div class="col-md-4 add-guardian" v-if="index == 0">
+              <div class="col-md-4 add-guardian" v-if="index == 0">
                 Add Guardians &nbsp;
-                <i
-                  class="bi bi-plus"
-                  style="color: #8bc34a"
-                  @click.stop="addGuardian"
-                ></i>
+                <i class="bi bi-plus" style="color: #8bc34a" @click.stop="addGuardian"></i>
               </div>
               <div class="col-md-4 remove-guardian" v-else>
                 Remove Guardians &nbsp;
-                <i
-                  class="bi bi-dash-circle"
-                  style="color: red"
-                  @click.stop="removeParent(input.parent_id)"
-                ></i>
+                <i class="bi bi-dash-circle" style="color: red" @click.stop="removeParent(input.parent_id)"></i>
               </div>
               <div class="col-md-12">
                 <hr class="hr-color" />
@@ -191,12 +184,15 @@ export default {
         Dob: '',
         Address: ''
       },
-      parent: {
-        First_name: '',
-        Last_name: '',
-        Phone: '',
-        Email: ''
-      }
+      dynamicParentList: [
+        {
+          First_name: '',
+          Last_name: '',
+          Phone: '',
+          Email: '',
+          parent_id: 1,
+        },
+      ],
     };
   },
   methods: {
