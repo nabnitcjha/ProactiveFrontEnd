@@ -139,7 +139,7 @@
             <!-- Parent Info End -->
 
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" @click.stop="addStudent">Submit form</button>
+              <button class="btn btn-success" type="submit" @click.stop="addStudent">Save</button>
             </div>
           </form><!-- End Custom Styled Validation -->
 
@@ -166,7 +166,7 @@ import {
   Address,
   Country,
   State,
-} from "../../../Assets/formIcons/index";
+} from "../../Assets/formIcons/index";
 export default {
   data() {
     return {
