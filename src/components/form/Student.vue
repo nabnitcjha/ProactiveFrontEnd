@@ -126,11 +126,11 @@
               </div>
               <div class="col-md-4 add-guardian" v-if="index == 0">
                 Add Guardians &nbsp;
-                <i class="bi bi-plus-circle" style="color: #8bc34a" @click.stop="addGuardian"></i>
+                <i class="bi bi-plus-circle add-guardian-icon" style="color: #8bc34a" @click.stop="addGuardian"></i>
               </div>
               <div class="col-md-4 remove-guardian" v-else>
                 Remove Guardians &nbsp;
-                <i class="bi bi-dash-circle" style="color: red" @click.stop="removeParent(input.parent_id)"></i>
+                <i class="bi bi-dash-circle remove-guardian-icon" style="color: red" @click.stop="removeParent(input.parent_id)"></i>
               </div>
               <div class="col-md-12 mt-4">
                 <hr class="hr-color" />

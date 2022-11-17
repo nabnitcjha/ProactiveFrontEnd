@@ -15,6 +15,10 @@
   display: flex;
   align-self: end;
 }
+.add-guardian-icon,
+.remove-guardian-icon {
+  cursor: pointer;
+}
 .parent-info{
   display: flex;
   flex-wrap: wrap;
