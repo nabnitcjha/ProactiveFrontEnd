@@ -15,3 +15,7 @@
   display: flex;
   align-self: end;
 }
+.parent-info{
+  display: flex;
+  flex-wrap: wrap;
+}

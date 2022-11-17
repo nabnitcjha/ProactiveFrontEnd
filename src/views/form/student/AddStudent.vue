@@ -9,7 +9,7 @@
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
-              <input type="text" class="form-control" id="student_first_name" required>
+              <input type="text" class="form-control" id="student_first_name" required v-model="student.First_name">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -20,7 +20,7 @@
 
             <div class="col-md-4">
               <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
-              <input type="text" class="form-control" id="student_last_name" required>
+              <input type="text" class="form-control" id="student_last_name" required  v-model="student.Last_name">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -31,7 +31,7 @@
 
             <div class="col-md-4">
               <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
-              <input type="text" class="form-control" id="student_phone" required>
+              <input type="text" class="form-control" id="student_phone" required  v-model="student.Phone">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -42,7 +42,7 @@
 
             <div class="col-md-4">
               <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
-              <input type="text" class="form-control" id="student_email" required>
+              <input type="text" class="form-control" id="student_email" required  v-model="student.Email">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -53,7 +53,7 @@
 
             <div class="col-md-4">
               <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
-              <input type="date" class="form-control" id="Student_dob" required>
+              <input type="date" class="form-control" id="Student_dob" required  v-model="student.Dob">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
@@ -75,7 +75,8 @@
             <h5 class="add-parent-title card-title ml-3">Parent Info</h5>
             <hr class="hr-parent ml-3">
             <!-- Parent Info Start -->
-            <div class="col-md-4">
+            <div class="parent-info col-12">
+              <div class="col-md-4">
               <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
               <input type="text" class="form-control" id="student_first_name" required>
               <!-- <div class="valid-feedback">
@@ -137,6 +138,7 @@
               <div class="col-md-12">
                 <hr class="hr-color" />
               </div>
+            </div>
             <!-- Parent Info End -->
 
             <div class="col-12">
