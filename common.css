@@ -1,9 +1,17 @@
-.hr-color ,.hr-parent{
-    margin-top: 0rem !important;
-    margin-bottom: 2rem !important;
-    border: 0 !important;
-    border-top: 1px solid #4e4e4e !important;
-  }
-.hr-parent{
-  width: 96%!important;
+.hr-color,
+.hr-parent {
+  margin-top: 0rem !important;
+  margin-bottom: 2rem !important;
+  border: 0 !important;
+  border-top: 1px solid #4e4e4e !important;
+}
+
+.hr-parent {
+  width: 96% !important;
+}
+
+.add-guardian,
+.remove-guardian {
+  display: flex;
+  align-self: end;
 }

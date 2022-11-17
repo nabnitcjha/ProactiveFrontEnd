@@ -118,6 +118,25 @@
                 Please choose a email.
               </div>
             </div>
+            <div class="col-md-4 add-guardian" v-if="index == 0">
+                Add Guardians &nbsp;
+                <i
+                  class="bi bi-plus"
+                  style="color: #8bc34a"
+                  @click.stop="addGuardian"
+                ></i>
+              </div>
+              <div class="col-md-4 remove-guardian" v-else>
+                Remove Guardians &nbsp;
+                <i
+                  class="bi bi-dash-circle"
+                  style="color: red"
+                  @click.stop="removeParent(input.parent_id)"
+                ></i>
+              </div>
+              <div class="col-md-12">
+                <hr class="hr-color" />
+              </div>
             <!-- Parent Info End -->
 
             <div class="col-12">
