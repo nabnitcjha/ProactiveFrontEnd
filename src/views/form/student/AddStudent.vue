@@ -10,9 +10,9 @@
             <div class="col-md-4">
               <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
               <input type="text" class="form-control" id="student_first_name" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a fist name.
               </div>
@@ -21,9 +21,9 @@
             <div class="col-md-4">
               <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
               <input type="text" class="form-control" id="student_last_name" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a last name.
               </div>
@@ -32,9 +32,9 @@
             <div class="col-md-4">
               <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
               <input type="text" class="form-control" id="student_phone" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a phone.
               </div>
@@ -43,9 +43,9 @@
             <div class="col-md-4">
               <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
               <input type="text" class="form-control" id="student_email" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a email.
               </div>
@@ -54,9 +54,9 @@
             <div class="col-md-4">
               <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
               <input type="date" class="form-control" id="Student_dob" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a date of birth.
               </div>
@@ -65,9 +65,9 @@
             <div class="col-md-4">
               <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
               <input type="text" class="form-control" id="student_address" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a address.
               </div>
@@ -78,9 +78,9 @@
             <div class="col-md-4">
               <label for="student_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
               <input type="text" class="form-control" id="student_first_name" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a fist name.
               </div>
@@ -89,9 +89,9 @@
             <div class="col-md-4">
               <label for="student_last_name" class="form-label"><img :src="icons.Last_name" />&nbsp;Last name</label>
               <input type="text" class="form-control" id="student_last_name" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a last name.
               </div>
@@ -100,9 +100,9 @@
             <div class="col-md-4">
               <label for="student_phone" class="form-label"><img :src="icons.Phone" />&nbsp;Phone</label>
               <input type="text" class="form-control" id="student_phone" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a phone.
               </div>
@@ -111,33 +111,11 @@
             <div class="col-md-4">
               <label for="student_email" class="form-label"><img :src="icons.Email" />&nbsp;Email</label>
               <input type="text" class="form-control" id="student_email" required>
-              <div class="valid-feedback">
+              <!-- <div class="valid-feedback">
                 Looks good!
-              </div>
+              </div> -->
               <div class="invalid-feedback">
                 Please choose a email.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
-              <input type="date" class="form-control" id="Student_dob" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a date of birth.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
-              <input type="text" class="form-control" id="student_address" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a address.
               </div>
             </div>
             <!-- Parent Info End -->
@@ -183,6 +161,20 @@ export default {
         Address: Address,
         Country: Country,
         State: State
+      },
+      student: {
+        First_name: '',
+        Last_name: '',
+        Phone: '',
+        Email: '',
+        Dob: '',
+        Address: ''
+      },
+      parent: {
+        First_name: '',
+        Last_name: '',
+        Phone: '',
+        Email: ''
       }
     };
   },
