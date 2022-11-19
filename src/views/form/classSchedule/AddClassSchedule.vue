@@ -64,7 +64,7 @@
               </div>
               <div class="session-repeat col-4">
                 <label for="repeat">Session Repeat</label>
-                <input class="input-custom-height col-3" type="number" v-model="sessionRepeat" min="1" max="100" />
+                <input class="input-custom-height col-3 ml-4" type="number" v-model="sessionRepeat" min="1" max="100" />
               </div>
             </div>
 
