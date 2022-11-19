@@ -84,9 +84,26 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <label for="student_address" class="form-label">Session Repeat</label>
               <input class="input-custom-height col-3" type="number" v-model="sessionRepeat" min="1" max="100" />
+            </div> -->
+            <div class="col-sm-12 col-lg-12"
+              style="border: 1px solid #c4c4c4">
+              <label for="repeat">Repeat</label>
+              <div class="week-days col-12">
+                <div class="" v-for="(day, index) in weekDays" :key="index">
+                  <input style="position: inherit" type="checkbox" class="custom-control-input" :id="index"
+                    :checked="repeatDays.includes(day.id)" @click="selectStudent($event, day.id, day, index)" />
+                  <label class="custom-control-label" :for="index">{{
+                      day.name
+                  }}</label>
+                </div>
+              </div>
+              <div class="session-repeat col-4">
+                <label for="repeat">Session Repeat</label>
+                <input class="input-custom-height col-3" type="number" v-model="sessionRepeat" min="1" max="100" />
+              </div>
             </div>
 
             <div class="col-md-12">
@@ -96,7 +113,31 @@
 
 
             <div class="col-12">
-              <button class="btn btn-success" type="submit" @click.stop="addStudent">Save</button>
+              <div class="form-group col-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                @click="updateTimeTable"
+                v-if="mode == 'edit'"
+              >
+                Update
+              </button>
+              <button
+                type="button"
+                class="btn btn-green"
+                @click="addTimeTableRecord"
+                v-else
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                @click="cancelTimeTableRecord"
+              >
+                Cancel
+              </button>
+            </div>
             </div>
           </form><!-- End Custom Styled Validation -->
 
