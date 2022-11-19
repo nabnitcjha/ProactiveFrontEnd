@@ -10,9 +10,6 @@
             <div class="col-md-4">
               <label for="Topic" class="form-label">Topic</label>
               <input type="text" class="form-control" id="Topic" required v-model="Topic">
-              <div class="invalid-feedback">
-                Please choose a Topic.
-              </div>
             </div>
 
             <div class="col-md-4">
@@ -20,9 +17,6 @@
               <multiselect v-model="selectedSubject" :options="subjects" :searchable="true" :close-on-select="false"
                 :allow-empty="false" :preselect-first="true" label="name" placeholder="Select Subject" track-by="id">
               </multiselect>
-              <div class="invalid-feedback">
-                Please choose a Subject.
-              </div>
             </div>
 
             <div class="col-md-4">
@@ -30,9 +24,6 @@
               <multiselect v-model="selectedTeacher" :options="teachers" :searchable="true" :close-on-select="false"
                 :allow-empty="false" :preselect-first="true" label="name" placeholder="Select Teacher" track-by="id"
                 @input="updateSelectedTeacher"></multiselect>
-              <div class="invalid-feedback">
-                Please choose a teacher.
-              </div>
             </div>
 
             <div class="col-md-4">
@@ -40,54 +31,25 @@
               <multiselect v-model="selectedStudent" :options="students" :searchable="true" :multiple="true"
                 :close-on-select="false" :allow-empty="false" :preselect-first="true" label="name"
                 placeholder="Select Student" track-by="id"></multiselect>
-              <div class="invalid-feedback">
-                Please choose a Student.
-              </div>
             </div>
 
             <div class="col-md-4">
               <label for="Student_dob" class="form-label">Start Date</label>
               <date-picker v-model="classStartDate" type="date" placeholder="Select date" format="YYYY-MM-DD"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
-              <div class="invalid-feedback">
-                Please choose a start date.
-              </div>
             </div>
 
             <div class="col-md-4">
               <label for="student_address" class="form-label">Start Time</label>
               <date-picker v-model="classStartTime" type="time" placeholder="start time" format="hh:mm a"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
-              <div class="invalid-feedback">
-                Please choose a address.
-              </div>
             </div>
             <div class="col-md-4">
               <label for="student_address" class="form-label">End Time</label>
               <date-picker v-model="classEndTime" type="time" placeholder="end time" format="hh:mm a"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
-              <div class="invalid-feedback">
-                Please choose a address.
-              </div>
             </div>
 
-            <div class="col-md-4">
-              <label for="student_address" class="form-label">Repeat</label>
-              <div class="week-days col-12">
-                <div class="" v-for="(day, index) in weekDays" :key="index">
-                  <input style="position: inherit" type="checkbox" class="custom-control-input" :id="index"
-                    :checked="repeatDays.includes(day.id)" @click="selectStudent($event, day.id, day, index)" />
-                  <label class="custom-control-label" :for="index">{{
-                      day.name
-                  }}</label>
-                </div>
-              </div>
-            </div>
-
-            <!-- <div class="col-md-4">
-              <label for="student_address" class="form-label">Session Repeat</label>
-              <input class="input-custom-height col-3" type="number" v-model="sessionRepeat" min="1" max="100" />
-            </div> -->
             <div class="col-sm-12 col-lg-12"
               style="border: 1px solid #c4c4c4">
               <label for="repeat">Repeat</label>
