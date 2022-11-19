@@ -33,27 +33,27 @@
                 placeholder="Select Student" track-by="id"></multiselect>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column">
               <label for="Student_dob" class="form-label">Start Date</label>
               <date-picker v-model="classStartDate" type="date" placeholder="Select date" format="YYYY-MM-DD"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column">
               <label for="student_address" class="form-label">Start Time</label>
               <date-picker v-model="classStartTime" type="time" placeholder="start time" format="hh:mm a"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex flex-column">
               <label for="student_address" class="form-label">End Time</label>
               <date-picker v-model="classEndTime" type="time" placeholder="end time" format="hh:mm a"
                 :default-value="new Date()" :disabled-date="disabledBeforeToday"></date-picker>
             </div>
 
-            <div class="col-sm-12 col-lg-12"
+            <div class="col-sm-12 col-lg-12 custom-checkbox"
               style="border: 1px solid #c4c4c4">
               <label for="repeat">Repeat</label>
-              <div class="week-days col-12">
+              <div class="week-days col-12 d-flex justify-content-between mb-4">
                 <div class="" v-for="(day, index) in weekDays" :key="index">
                   <input style="position: inherit" type="checkbox" class="custom-control-input" :id="index"
                     :checked="repeatDays.includes(day.id)" @click="selectStudent($event, day.id, day, index)" />
@@ -114,6 +114,35 @@
 export default {
   data() {
     return {
+      currentTeacherId: "",
+      repeatDays: [],
+      sessionRepeat: 1,
+      weekDays: [
+        { id: 0, name: "Sun" },
+        { id: 1, name: "Mon" },
+        { id: 2, name: "Tue" },
+        { id: 3, name: "Wed" },
+        { id: 4, name: "Thu" },
+        { id: 5, name: "Fri" },
+        { id: 6, name: "Sat" },
+      ],
+      topic: "",
+      subjects: [],
+      event_message:'',
+      students: [],
+      selectedSubject: [],
+      teachers: [],
+      slotTimes: [],
+      selectedTeacher: [],
+      selectedStudent: [],
+      classStartDate:'',
+      classEndDate:'',
+      classStartTime: '',
+      classEndTime: '',
+      repeatLastDate: new Date(),
+      disabledDates: {
+        to: new Date(Date.now() - 8640000),
+      },
     };
   },
   methods: {

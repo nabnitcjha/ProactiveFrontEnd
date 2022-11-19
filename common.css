@@ -23,3 +23,25 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.mx-datepicker {
+  width: inherit!important;
+}
+
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #8bc34a !important;
+}
+span.custom-checkbox {
+  padding: 2rem !important;
+}
+.custom-checkbox
+  .custom-control-input:checked:focus
+  ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem #fff;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #fff;
+  background-color: #fff;
+}
