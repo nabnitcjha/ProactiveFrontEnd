@@ -71,7 +71,6 @@
                 v-model="event_message"></textarea>
             </div>
 
-
             <div class="col-12">
               <div class="form-group col-12">
                 <button type="button" class="btn btn-success" @click="updateTimeTable" v-if="mode == 'edit'">
