@@ -13,6 +13,8 @@ import {
 } from "vee-validate";
 import en from "vee-validate/dist/locale/en.json";
 import * as rules from "vee-validate/dist/rules";
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
 
 // Install VeeValidate rules and localization
 Object.keys(rules).forEach(rule => {
@@ -25,6 +27,7 @@ localize("en", en);
 Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
 Vue.component('multiselect', Multiselect)
+Vue.component('date-picker', DatePicker)
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
