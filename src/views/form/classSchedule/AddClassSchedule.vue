@@ -8,7 +8,7 @@
             <hr class="hr-color">
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-md-4">
-                <label for="Topic" class="form-label"><img :src="icons.Topic" />&nbsp;Topic</label>
+                <label for="Topic" class="form-label">Topic</label>
                 <input type="text" class="form-control" id="Topic" required v-model="Topic">
                 <div class="invalid-feedback">
                   Please choose a Topic.
@@ -16,7 +16,7 @@
               </div>
   
               <div class="col-md-4">
-                <label for="Subject" class="form-label"><img :src="icons.Subject" />&nbsp;Subject</label>
+                <label for="Subject" class="form-label">Subject</label>
                 <multiselect
                 v-model="selectedSubject"
                 :options="subjects"
@@ -34,7 +34,7 @@
               </div>
   
               <div class="col-md-4">
-                <label for="Teacher" class="form-label"><img :src="icons.Teacher" />&nbsp;Teacher</label>
+                <label for="Teacher" class="form-label">Teacher</label>
                 <multiselect
                 v-model="selectedTeacher"
                 :options="teachers"
@@ -53,7 +53,7 @@
               </div>
   
               <div class="col-md-4">
-                <label for="student_email" class="form-label"><img :src="icons.Student" />&nbsp;Student</label>
+                <label for="student_email" class="form-label">Student</label>
                 <multiselect
                 v-model="selectedStudent"
                 :options="students"
@@ -72,16 +72,30 @@
               </div>
   
               <div class="col-md-4">
-                <label for="Student_dob" class="form-label"><img :src="icons.Dob" />&nbsp;DOB</label>
-                <input type="date" class="form-control" id="Student_dob" required v-model="student.Dob">
+                <label for="Student_dob" class="form-label">Start Date</label>
+                <date-picker
+                v-model="classStartDate"
+                type="date"
+                placeholder="Select date"
+                format="YYYY-MM-DD"
+                :default-value="new Date()"
+                :disabled-date="disabledBeforeToday"
+              ></date-picker>
                 <div class="invalid-feedback">
-                  Please choose a date of birth.
+                  Please choose a start date.
                 </div>
               </div>
   
               <div class="col-md-4">
-                <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
-                <input type="text" class="form-control" id="student_address" required v-model="student.Address">
+                <label for="student_address" class="form-label">Start Time</label>
+                <date-picker
+                v-model="classStartTime"
+                type="time"
+                placeholder="start time"
+                format="hh:mm a"
+                :default-value="new Date()"
+                :disabled-date="disabledBeforeToday"
+              ></date-picker>
                 <div class="invalid-feedback">
                   Please choose a address.
                 </div>
@@ -163,7 +177,7 @@
   </style>
   
   <script>
-  import {
+   import {
     First_name,
     Last_name,
     Phone,
@@ -177,66 +191,20 @@
     data() {
       return {
         icons: {
-          First_name: First_name,
-          Last_name: Last_name,
-          Phone: Phone,
-          Email: Email,
+          Topic: First_name,
+          Subject: Last_name,
+          Teacher: Phone,
+          Student: Email,
           Dob: Dob,
           Address: Address,
           Country: Country,
           State: State
         },
-        student: {
-          First_name: '',
-          Last_name: '',
-          Phone: '',
-          Email: '',
-          Dob: '',
-          Address: ''
-        },
-        dynamicParentList: [
-          {
-            First_name: '',
-            Last_name: '',
-            Phone: '',
-            Email: '',
-            parent_id: 1,
-          },
-        ],
       };
     },
     methods: {
       addStudent() {
         this.checkValidation()
-      },
-      changeField(event, type, parent) {
-        let dynamicParentList = [...this.dynamicParentList];
-        let item = dynamicParentList.find(
-          (parentItem) => parentItem.parent_id === parent
-        );
-        let updatedItem = {
-          ...item,
-          type: event.target.value,
-        };
-  
-        item = updatedItem;
-        this.dynamicParentList = dynamicParentList;
-      },
-      addGuardian() {
-        let dynamicList = [...this.dynamicParentList];
-        dynamicList.push({
-          parent_id: this.dynamicParentList.length + 1,
-          first_name: "",
-          last_name: "",
-          phone: "",
-          email: ""
-        });
-        this.dynamicParentList = dynamicList;
-      },
-      removeParent(parent_id) {
-        this.dynamicParentList = this.dynamicParentList.filter(
-          (parentItem) => parentItem.parent_id !== parent_id
-        );
       },
     }
   };
