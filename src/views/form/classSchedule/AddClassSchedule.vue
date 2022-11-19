@@ -110,42 +110,13 @@
   </div>
 </template>
   
-<style>
-body {
-  padding: 1rem;
-}
-</style>
-  
 <script>
-import {
-  First_name,
-  Last_name,
-  Phone,
-  Email,
-  Dob,
-  Address,
-  Country,
-  State,
-} from "../../../Assets/formIcons/index";
 export default {
   data() {
     return {
-      icons: {
-        Topic: First_name,
-        Subject: Last_name,
-        Teacher: Phone,
-        Student: Email,
-        Dob: Dob,
-        Address: Address,
-        Country: Country,
-        State: State
-      },
     };
   },
   methods: {
-    addStudent() {
-      this.checkValidation()
-    },
   }
 };
 </script>
