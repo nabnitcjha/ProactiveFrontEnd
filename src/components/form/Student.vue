@@ -208,12 +208,13 @@ export default {
       this.checkValidation(this.callBack)
     },
     async save() {
-      let dynamic_parent_list =    this.dynamicParentList.map((datum) => {
+      let dynamic_parent_list =    this.dynamicParentList.map((data) => {
         return {
-          'first_name':datum.First_name,
-          'last_name':datum.Last_name,
-          'phone':datum.Phone,
-          'email':datum.Email
+          'first_name':data.First_name,
+          'last_name':data.Last_name,
+          'full_name':data.First_name + ' ' +data.Last_name,
+          'phone':data.Phone,
+          'email':data.Email
         }
       });
        
@@ -225,8 +226,9 @@ export default {
 
       formData.append("student_info[phone]", this.student.Phone);
       formData.append("student_info[dob]", this.student.Dob);
+      formData.append("student_info[full_name]", this.student.First_name+' '+this.student.Last_name);
       formData.append("student_info[country]", this.student.Country);
-      
+
       formData.append("parent_info[dynamic_parent_list]", dynamic_parent_list);
 
       let postResponse = {};
