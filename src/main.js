@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 import connectAPI from './connectAPI'
-import moment from './moment'
+import momentMethod from './momentMethod'
+import moment from "moment";
 import Multiselect from 'vue-multiselect'
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
@@ -38,18 +39,21 @@ import { Plugin } from "vue-fragment";
 import { createPinia, PiniaVuePlugin } from "pinia";
 import piniaPersist from 'pinia-plugin-persist'
 
+// Choose Locale
+moment.locale('en');
 
 Vue.use(PiniaVuePlugin);
 const pinia = createPinia();
 pinia.use(piniaPersist)
 
+Vue.use({ moment });
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(Fragment.Plugin);
 Vue.use(Plugin);
 Vue.use(axios);
 Vue.mixin(connectAPI);
-Vue.mixin(moment);
+Vue.mixin(momentMethod);
 
 
 new Vue({

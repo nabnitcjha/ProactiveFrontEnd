@@ -130,7 +130,8 @@
               </div>
               <div class="col-md-4 remove-guardian" v-else>
                 Remove Guardians &nbsp;
-                <i class="bi bi-dash-circle remove-guardian-icon" style="color: red" @click.stop="removeParent(input.parent_id)"></i>
+                <i class="bi bi-dash-circle remove-guardian-icon" style="color: red"
+                  @click.stop="removeParent(input.parent_id)"></i>
               </div>
               <div class="col-md-12 mt-4">
                 <hr class="hr-color" />
@@ -139,7 +140,7 @@
             <!-- Parent Info End -->
 
             <div class="col-12">
-              <button class="btn btn-success"  @click.stop="addStudent">Save</button>
+              <button class="btn btn-success" @click.stop="addStudent">Save</button>
             </div>
           </form><!-- End Custom Styled Validation -->
 
@@ -200,19 +201,22 @@ export default {
     };
   },
   methods: {
-    callBack(){
+    callBack() {
       this.save();
     },
     addStudent() {
       this.checkValidation(this.callBack)
     },
     async save() {
-      
-      // if (this.student.Dob == "") {
-      //   date = "";
-      // } else {
-      //   date = await this.dateFormater(this.student.Dob);
-      // }
+      let dynamic_parent_list =    this.dynamicParentList.map((datum) => {
+        return {
+          'first_name':datum.First_name,
+          'last_name':datum.Last_name,
+          'phone':datum.Phone,
+          'email':datum.Email
+        }
+      });
+       
       let formData = new FormData();
       formData.append("student_info[first_name]", this.student.First_name);
       formData.append("student_info[last_name]", this.student.Last_name);
@@ -220,12 +224,12 @@ export default {
       formData.append("student_info[email]", this.student.Email);
       formData.append("student_info[dob]", this.student.Dob);
       formData.append("student_info[country]", this.student.Country);
-      formData.append("parent_info[dynamic_parent_list]", this.dynamicParentList);
-      
-      let postResponse={};
+      formData.append("parent_info[dynamic_parent_list]", dynamic_parent_list);
+
+      let postResponse = {};
       let urlText = 'addStudent';
-      postResponse = await this.post(urlText,formData);
-      
+      postResponse = await this.post(urlText, formData);
+
     },
     changeField(event, type, parent) {
       let dynamicParentList = [...this.dynamicParentList];
