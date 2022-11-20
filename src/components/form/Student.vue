@@ -213,6 +213,7 @@ export default {
           'first_name':data.First_name,
           'last_name':data.Last_name,
           'full_name':data.First_name + ' ' +data.Last_name,
+          'role':'parent',
           'phone':data.Phone,
           'email':data.Email
         }
