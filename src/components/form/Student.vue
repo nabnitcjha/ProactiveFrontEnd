@@ -63,13 +63,13 @@
             </div>
 
             <div class="col-md-4">
-              <label for="student_address" class="form-label"><img :src="icons.Address" />&nbsp;Address</label>
-              <input type="text" class="form-control" id="student_address" required v-model="student.Address">
+              <label for="student_country" class="form-label"><img :src="icons.Address" />&nbsp;Country</label>
+              <input type="text" class="form-control" id="student_country" required v-model="student.Country">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
               <div class="invalid-feedback">
-                Please choose a address.
+                Please choose a country.
               </div>
             </div>
             <h5 class="add-parent-title card-title ml-3">Parent Info</h5>
@@ -186,7 +186,7 @@ export default {
         Phone: '',
         Email: '',
         Dob: '',
-        Address: ''
+        Country: ''
       },
       dynamicParentList: [
         {
