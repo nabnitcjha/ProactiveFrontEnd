@@ -200,8 +200,11 @@ export default {
     };
   },
   methods: {
+    callBack(){
+      alert('hello calback');
+    },
     addStudent() {
-      this.checkValidation()
+      this.checkValidation(this.callBack)
     },
     changeField(event, type, parent) {
       let dynamicParentList = [...this.dynamicParentList];
