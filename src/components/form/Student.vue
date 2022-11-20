@@ -139,7 +139,7 @@
             <!-- Parent Info End -->
 
             <div class="col-12">
-              <button class="btn btn-success" type="submit" @click.stop="addStudent">Save</button>
+              <button class="btn btn-success"  @click.stop="addStudent">Save</button>
             </div>
           </form><!-- End Custom Styled Validation -->
 
@@ -201,10 +201,31 @@ export default {
   },
   methods: {
     callBack(){
-      alert('hello calback');
+      this.save();
     },
     addStudent() {
       this.checkValidation(this.callBack)
+    },
+    async save() {
+      
+      // if (this.student.Dob == "") {
+      //   date = "";
+      // } else {
+      //   date = await this.dateFormater(this.student.Dob);
+      // }
+      let formData = new FormData();
+      formData.append("student_info[first_name]", this.student.First_name);
+      formData.append("student_info[last_name]", this.student.Last_name);
+      formData.append("student_info[phone]", this.student.Phone);
+      formData.append("student_info[email]", this.student.Email);
+      formData.append("student_info[dob]", this.student.Dob);
+      formData.append("student_info[country]", this.student.Country);
+      formData.append("parent_info[dynamic_parent_list]", this.dynamicParentList);
+      
+      let postResponse={};
+      let urlText = 'addStudent';
+      postResponse = await this.post(urlText,formData);
+      
     },
     changeField(event, type, parent) {
       let dynamicParentList = [...this.dynamicParentList];

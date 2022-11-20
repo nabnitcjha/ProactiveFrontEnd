@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 import connectAPI from './connectAPI'
+import moment from './moment'
 import Multiselect from 'vue-multiselect'
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
@@ -48,6 +49,7 @@ Vue.use(Fragment.Plugin);
 Vue.use(Plugin);
 Vue.use(axios);
 Vue.mixin(connectAPI);
+Vue.mixin(moment);
 
 
 new Vue({
