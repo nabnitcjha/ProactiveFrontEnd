@@ -230,12 +230,13 @@ export default {
       formData.append("student_info[full_name]", this.student.First_name+' '+this.student.Last_name);
       formData.append("student_info[country]", this.student.Country);
 
-      formData.append("parent_info[dynamic_parent_list]", dynamic_parent_list);
+      formData.append("parent_info", JSON.stringify(dynamic_parent_list) );
 
       let postResponse = {};
       let urlText = 'addStudent';
+      
       postResponse = await this.post(urlText, formData);
-
+      
     },
     changeField(event, type, parent) {
       let dynamicParentList = [...this.dynamicParentList];
