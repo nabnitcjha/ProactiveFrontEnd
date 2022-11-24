@@ -208,17 +208,17 @@ export default {
       this.checkValidation(this.callBack)
     },
     async save() {
-      let dynamic_parent_list =    this.dynamicParentList.map((data) => {
+      let dynamic_parent_list = this.dynamicParentList.map((data) => {
         return {
-          'first_name':data.First_name,
-          'last_name':data.Last_name,
-          'full_name':data.First_name + ' ' +data.Last_name,
-          'role':'parent',
-          'phone':data.Phone,
-          'email':data.Email
+          'first_name': data.First_name,
+          'last_name': data.Last_name,
+          'full_name': data.First_name + ' ' + data.Last_name,
+          'role': 'parent',
+          'phone': data.Phone,
+          'email': data.Email
         }
       });
-       
+
       let formData = new FormData();
       formData.append("user_info[first_name]", this.student.First_name);
       formData.append("user_info[last_name]", this.student.Last_name);
@@ -227,16 +227,16 @@ export default {
 
       formData.append("student_info[phone]", this.student.Phone);
       formData.append("student_info[dob]", this.student.Dob);
-      formData.append("student_info[full_name]", this.student.First_name+' '+this.student.Last_name);
+      formData.append("student_info[full_name]", this.student.First_name + ' ' + this.student.Last_name);
       formData.append("student_info[country]", this.student.Country);
 
-      formData.append("parent_info", JSON.stringify(dynamic_parent_list) );
+      formData.append("parent_info", JSON.stringify(dynamic_parent_list));
 
       let postResponse = {};
       let urlText = 'addStudent';
-      
+
       postResponse = await this.post(urlText, formData);
-      
+
     },
     changeField(event, type, parent) {
       let dynamicParentList = [...this.dynamicParentList];
