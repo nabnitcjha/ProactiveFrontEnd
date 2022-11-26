@@ -7,72 +7,147 @@
           <h5 class="card-title">Class Schedule</h5>
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
-              <label for="student_first_name" class="form-label">First name</label>
-              <input type="text" class="form-control" id="student_first_name" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a fist name.
-              </div>
+              <label for="topic" class="form-label">Topic</label>
+              <input type="text" class="form-control" id="topic" required v-model="topic">
             </div>
 
             <div class="col-md-4">
-              <label for="student_last_name" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="student_last_name" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a last name.
-              </div>
+              <label for="subject" class="form-label">Subject</label>
+              <multiselect
+                v-model="selectedSubject"
+                :options="subjects"
+                :searchable="true"
+                :close-on-select="false"
+                :allow-empty="false"
+                :preselect-first="true"
+                label="name"
+                placeholder="Select Subject"
+                track-by="id"
+              ></multiselect>
             </div>
 
             <div class="col-md-4">
-              <label for="student_phone" class="form-label">Phone</label>
-              <input type="text" class="form-control" id="student_phone" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a phone.
-              </div>
+              <label for="teacher" class="form-label">Teacher</label>
+              <multiselect
+                v-model="selectedTeacher"
+                :options="teachers"
+                :searchable="true"
+                :close-on-select="false"
+                :allow-empty="false"
+                :preselect-first="true"
+                label="name"
+                placeholder="Select Teacher"
+                track-by="id"
+                @input="updateSelectedTeacher"
+              ></multiselect>
             </div>
 
             <div class="col-md-4">
-              <label for="student_email" class="form-label">Email</label>
-              <input type="text" class="form-control" id="student_email" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a email.
-              </div>
+              <label for="student" class="form-label">Student</label>
+              <multiselect
+                v-model="selectedStudent"
+                :options="students"
+                :searchable="true"
+                :multiple="true"
+                :close-on-select="false"
+                :allow-empty="false"
+                :preselect-first="true"
+                label="name"
+                placeholder="Select Student"
+                track-by="id"
+              ></multiselect>
             </div>
 
             <div class="col-md-4">
-              <label for="Student_dob" class="form-label">DOB</label>
-              <input type="date" class="form-control" id="Student_dob" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-              <div class="invalid-feedback">
-                Please choose a date of birth.
-              </div>
+              <label for="start_date" class="form-label">Start Date</label>
+              <date-picker
+                v-model="classStartDate"
+                type="date"
+                placeholder="Select date"
+                format="YYYY-MM-DD"
+                :default-value="new Date()"
+                :disabled-date="disabledBeforeToday"
+              ></date-picker>
             </div>
 
             <div class="col-md-4">
-              <label for="student_address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="student_address" required>
-              <div class="valid-feedback">
-                Looks good!
+              <label for="start_time" class="form-label">Start Time</label>
+              <date-picker
+                v-model="classStartTime"
+                type="time"
+                placeholder="start time"
+                format="hh:mm a"
+                :default-value="new Date()"
+                :disabled-date="disabledBeforeToday"
+              ></date-picker>
+            </div>
+
+            <div class="col-md-4">
+              <label for="end_time" class="form-label">End Time</label>
+              <date-picker
+                v-model="classEndTime"
+                type="time"
+                placeholder="end time"
+                format="hh:mm a"
+                :default-value="new Date()"
+                :disabled-date="disabledBeforeToday"
+              ></date-picker>
+            </div>
+
+            <div class="col-md-12">
+              <label for="repeat" class="form-label">Repeat</label>
+              <div class="week-days col-12">
+                <div class="" v-for="(day, index) in weekDays" :key="index">
+                  <input
+                    style="position: inherit"
+                    type="checkbox"
+                    class="custom-control-input"
+                    :id="index"
+                    :checked="repeatDays.includes(day.id)"
+                    @click="selectStudent($event, day.id,day,index)"
+                  />
+                  <label class="custom-control-label" :for="index">{{
+                    day.name
+                  }}</label>
+                </div>
               </div>
-              <div class="invalid-feedback">
-                Please choose a address.
+              <div class="session-repeat col-4">
+                <label for="repeat">Session Repeat</label>
+                <input
+                  class="input-custom-height col-3"
+                  type="number"
+                  v-model="sessionRepeat"
+                  min="1"
+                  max="100"
+                />
               </div>
             </div>
+
+            <div class="col-md-12">
+              <textarea
+              class="form-control"
+              rows="5"
+              id="topicName"
+              placeholder="Description"
+              v-model="event_message"
+            ></textarea>
+            </div>
+
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" @click.stop="addStudent">Submit form</button>
+              <button
+                type="button"
+                class="btn btn-green"
+                @click="addTimeTableRecord"
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                @click="cancelTimeTableRecord"
+              >
+                Cancel
+              </button>
             </div>
           </form><!-- End Custom Styled Validation -->
 
@@ -83,37 +158,202 @@
   </div>
 </template>
 
-<style>
-body {
-  padding: 1rem;
-}
-</style>
-
 <script>
+import moment from 'moment';
 export default {
   data() {
     return {
+      currentTimetableId: '',
+      hideRepeat: false,
+      studentCalendarDetail: false,
+      allowAddStudent: false,
+      allowAddTeacher: false,
+      currentTeacherId: "",
+      currentTeacherIdBackup: "",
+      editSessionId: "",
+      repeatDays: [],
+      sessionRepeat: 1,
+      weekDays: [
+        { id: 0, name: "Sun" },
+        { id: 1, name: "Mon" },
+        { id: 2, name: "Tue" },
+        { id: 3, name: "Wed" },
+        { id: 4, name: "Thu" },
+        { id: 5, name: "Fri" },
+        { id: 6, name: "Sat" },
+      ],
+      loading: true,
+      bootstrapPaginationClasses: {
+        ul: "custom-pagination",
+        li: "page-item",
+        liActive: "active",
+        liDisable: "disabled",
+        button: "page-link",
+      },
 
+      topic: "",
+      subjects: [],
+      event_message: '',
+      students: [],
+      selectedSubject: [],
+      grades: [],
+      selectedGrade: [],
+      teachers: [],
+      slotTimes: [],
+      selectedTeacher: [],
+      selectedStudent: [],
+      classStartDate: '',
+      classStartDateBackUP: '',
+      classEndDate: '',
+      classStartTime: '',
+      classEndTime: '',
+      repeatLastDate: new Date(),
+      disabledDates: {
+        to: new Date(Date.now() - 8640000),
+      },
+      isEditPageLoadFirstTime: true,
     };
   },
-  methods: {
-    addStudent() {
-      this.checkValidation()
-    },
-    checkValidation() {
-      var needsValidation = document.querySelectorAll('.needs-validation')
-      Array.prototype.slice.call(needsValidation)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
 
-            form.classList.add('was-validated')
-          }, false)
-        })
-    }
-  }
+  methods: {
+    disabledBeforeToday(date) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return date < today;
+    },
+
+    async addTimeTableRecord(e) {
+
+      let slotTimes = [...this.slotTimes];
+      this.classStartDateBackUP = new Date(this.classStartDate);
+      let repeatDays = this.sessionRepeat * 7;
+      var startDate = new Date();
+      var endDate = new Date();
+      var startTime = new Date();
+      var endTime = new Date();
+      e.preventDefault();
+
+      startDate = this.dateFormater(this.classStartDate);
+
+      endDate = this.dateFormater(this.classStartDate);
+
+      this.repeatLastDate.setDate(this.classStartDate.getDate() + repeatDays);
+
+      let time_am_pm =
+        (await this.single_dateFormater_AM_PM(this.classStartTime)) +
+        " - " +
+        (await this.single_dateFormater_AM_PM(this.classEndTime));
+      startTime = this.single_dateFormater(this.classStartTime);
+      endTime = this.single_dateFormater(this.classEndTime);
+
+      startDate = this.timeAndDate(startDate, this.timeFormater(this.classStartTime));
+      endDate = this.timeAndDate(endDate, this.timeFormater(this.classEndTime));
+
+
+
+
+      slotTimes.push({
+        startDate: startDate,
+        endDate: endDate,
+        startTime: startTime,
+        endTime: endTime,
+        time_am_pm: time_am_pm,
+      });
+
+      let strtDate = this.classStartDate.setDate(
+        this.classStartDate.getDate() + 1
+      );
+      this.classStartDate = new Date(strtDate);
+
+
+      this.classEndDate = new Date(strtDate);
+
+
+      while (this.classStartDate <= this.repeatLastDate) {
+
+        let day = this.classStartDate.getDay();
+
+        if (this.repeatDays.indexOf(day) !== -1) {
+          let startDate = this.dateFormater(this.classStartDate);
+          let start_time_am_pm = await this.single_dateFormater_AM_PM(
+            this.classStartTime
+          );
+
+          let endDate = this.dateFormater(this.classEndDate);
+          let end_time_am_pm = await this.single_dateFormater_AM_PM(
+            this.classEndTime
+          );
+
+          let time_am_pm = start_time_am_pm + " - " + end_time_am_pm;
+
+          // startDate = this.timeAndDate(startDate,moment(startTime).format('HH:mm:ss'));
+          // endDate = this.timeAndDate(endDate,moment(endTime).format('HH:mm:ss'));
+
+          startDate = this.timeAndDate(startDate, this.timeFormater(this.classStartTime));
+          endDate = this.timeAndDate(endDate, this.timeFormater(this.classEndTime));
+
+
+
+          slotTimes.push({
+            startDate: startDate,
+            endDate: endDate,
+            startTime: startTime,
+            endTime: endTime,
+            time_am_pm: time_am_pm,
+          });
+        }
+
+        let stDate = this.classStartDate.setDate(
+          this.classStartDate.getDate() + 1
+        );
+        let eDate = this.classEndDate.setDate(this.classEndDate.getDate() + 1);
+        this.classStartDate = new Date(stDate);
+        this.classEndDate = new Date(eDate);
+      }
+
+      this.slotTimes = slotTimes;
+      let formData = {};
+      formData["subject_id"] = this.selectedSubject.id;
+      formData["teacher_id"] = this.selectedTeacher.id;
+      formData["students"] = this.selectedStudent;
+      formData["topic"] = this.topic;
+      formData["slotTimes"] = this.slotTimes;
+      formData["event_message"] = this.event_message;
+
+      formData["selected_day"] = this.repeatDays;
+      formData["session_repeat"] = this.sessionRepeat;
+      formData["pageType"] = this.titleInfo.pageType;
+      formData["session_id"] = this.editSessionId;
+
+      axios.post("/api/addTimeTable", formData).then((res) => {
+        this.classStartDate = this.classStartDateBackUP;
+        this.slotTimes = [];
+        if (res.data.message == "teacher not available") {
+          this.teacherNotAvailable(res.data.startDate, res.data.time_am_pm, res.data.current_time_am_pm);
+        } else if (res.data.message == "student not available") {
+          this.studentNotAvailable(res.data.startDate, res.data.time_am_pm, res.data.current_time_am_pm);
+        } else {
+          this.setPageTitle("Time Table");
+          this.addStatus('Success');
+          this.goBack();
+        }
+      });
+      if (this.$route.name == 'studentCalendarDetail') {
+        location.reload();
+      }
+      if (this.$route.name == 'teacherCalendarDetail') {
+        location.reload();
+      }
+
+    },
+  },
+  mounted() {
+
+  },
 };
 </script>
+<style>
+.timeTable .v-application--wrap {
+  min-height: unset !important;
+}
+</style>
