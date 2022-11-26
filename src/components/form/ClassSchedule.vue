@@ -96,7 +96,8 @@
 
             <div class="col-md-12">
               <label for="repeat" class="form-label">Repeat</label>
-              <div class="week-days col-12">
+              <div style="border: 1px solid #4e4e4e57;">
+              <div class="week-days col-12 d-flex justify-content-between p-5">
                 <div class="" v-for="(day, index) in weekDays" :key="index">
                   <input
                     style="position: inherit"
@@ -111,7 +112,7 @@
                   }}</label>
                 </div>
               </div>
-              <div class="session-repeat col-4">
+              <div class="session-repeat col-4 p-5">
                 <label for="repeat">Session Repeat</label>
                 <input
                   class="input-custom-height col-3"
@@ -120,6 +121,7 @@
                   min="1"
                   max="100"
                 />
+              </div>
               </div>
             </div>
 
@@ -136,17 +138,10 @@
             <div class="col-12">
               <button
                 type="button"
-                class="btn btn-green"
+                class="btn btn-success"
                 @click="addTimeTableRecord"
               >
                 Save
-              </button>
-              <button
-                type="button"
-                class="btn btn-danger"
-                @click="cancelTimeTableRecord"
-              >
-                Cancel
               </button>
             </div>
           </form><!-- End Custom Styled Validation -->
@@ -164,12 +159,10 @@ export default {
   data() {
     return {
       currentTimetableId: '',
-      hideRepeat: false,
       studentCalendarDetail: false,
       allowAddStudent: false,
       allowAddTeacher: false,
       currentTeacherId: "",
-      currentTeacherIdBackup: "",
       editSessionId: "",
       repeatDays: [],
       sessionRepeat: 1,
@@ -182,15 +175,7 @@ export default {
         { id: 5, name: "Fri" },
         { id: 6, name: "Sat" },
       ],
-      loading: true,
-      bootstrapPaginationClasses: {
-        ul: "custom-pagination",
-        li: "page-item",
-        liActive: "active",
-        liDisable: "disabled",
-        button: "page-link",
-      },
-
+     
       topic: "",
       subjects: [],
       event_message: '',
@@ -203,7 +188,6 @@ export default {
       selectedTeacher: [],
       selectedStudent: [],
       classStartDate: '',
-      classStartDateBackUP: '',
       classEndDate: '',
       classStartTime: '',
       classEndTime: '',
@@ -211,7 +195,6 @@ export default {
       disabledDates: {
         to: new Date(Date.now() - 8640000),
       },
-      isEditPageLoadFirstTime: true,
     };
   },
 
