@@ -4,7 +4,7 @@
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Add Student and Parent Information</h5>
+          <h5 class="card-title">Class Schedule</h5>
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="student_first_name" class="form-label">First name</label>
