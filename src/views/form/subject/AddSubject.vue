@@ -1,9 +1,9 @@
 <template>
-  <teacher :mode="mode" />
+  <subject :mode="mode" />
 </template>
 
 <script>
-import Teacher from '../../../components/form/Teacher.vue';
+import Subject from '../../../components/form/Subject.vue';
 export default {
  data() {
    return {
@@ -11,7 +11,7 @@ export default {
    };
  },
  components:{
-   Teacher
+   Subject
  }
 };
 </script>

@@ -15,7 +15,7 @@
   display: flex;
   align-self: end;
 }
-.add-guardian-icon,
+.hand,.add-guardian-icon,
 .remove-guardian-icon {
   cursor: pointer;
 }

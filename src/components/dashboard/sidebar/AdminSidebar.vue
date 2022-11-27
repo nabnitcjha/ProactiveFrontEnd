@@ -9,18 +9,26 @@
 </li><!-- End Dashboard Nav -->
 
 <li class="nav-item">
-  <a class="nav-link collapsed">
+  <a class="nav-link collapsed hand"  @click.stop="$root.changeRoute('/add-student')">
     <i class="bi bi-person"></i>
     <span>Student</span>
   </a>
 </li><!-- End Student Nav -->
 
 <li class="nav-item">
-  <a class="nav-link collapsed">
+  <a class="nav-link collapsed hand"  @click.stop="$root.changeRoute('/add-teacher')">
     <i class="bi bi-person"></i>
     <span>Teacher</span>
   </a>
 </li><!-- End Teacher Nav -->
+
+<li class="nav-item">
+  <a class="nav-link collapsed hand"  @click.stop="$root.changeRoute('/add/class-schedule')">
+    <i class="bi bi-person"></i>
+    <span>Class Schedule</span>
+  </a>
+</li><!-- End Class Schedule Nav -->
+
 
 <li class="nav-item">
   <a class="nav-link collapsed">
@@ -35,17 +43,17 @@
   </a>
   <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
     <li>
-      <a href="components-alerts.html">
+      <a>
         <i class="bi bi-circle"></i><span>Register Student</span>
       </a>
     </li>
     <li>
-      <a href="components-accordion.html">
+      <a>
         <i class="bi bi-circle"></i><span>Register Teacher</span>
       </a>
     </li>
     <li>
-      <a href="components-badges.html">
+      <a @click.stop="$root.changeRoute('/add-subject')" class="hand">
         <i class="bi bi-circle"></i><span>Subject</span>
       </a>
     </li>
