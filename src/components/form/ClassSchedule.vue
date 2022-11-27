@@ -140,6 +140,24 @@ export default {
       return date < today;
     },
 
+    async getStudents() {
+      let urlText = 'getStudents';
+
+      this.students = await this.get(urlText);
+    },
+
+    async getSubjects() {
+      let urlText = 'getSubjects';
+
+      this.subjects = await this.get(urlText);
+    },
+
+    async getTeachers() {
+      let urlText = 'getTeachers';
+
+      this.teachers = await this.get(urlText);
+    },
+
     async addTimeTableRecord(e) {
       e.preventDefault();
 
@@ -223,9 +241,14 @@ export default {
         this.slotTimes = [];
       });
     },
+    initialCall() {
+      this.getStudents();
+      this.getSubjects();
+      this.getTeachers();
+    },
   },
   mounted() {
-
+    this.initialCall();
   },
 };
 </script>
