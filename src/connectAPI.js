@@ -21,10 +21,10 @@ export default {
 
       return postResponse;
     },
-    get(urlText, id = 0) {
+    get(urlText, id = 0,allowPagination=false) {
       let url =
         id == 0
-          ? this.apiUrl + "/api/" + urlText
+          ? this.apiUrl + "/api/" + urlText+"allowPagination="+allowPagination
           : this.apiUrl + "/api/" + urlText + id;
       let getResponse = axios.get(url).then((response) => {
         return response;

@@ -144,18 +144,36 @@ export default {
       let urlText = 'getStudents';
 
       this.students = await this.get(urlText);
+      this.students = this.students.map((data)=>{
+        return {
+          'id':data.id,
+          'name':data.full_name
+        }
+      })
     },
 
     async getSubjects() {
       let urlText = 'getSubjects';
 
       this.subjects = await this.get(urlText);
+      this.subjects = this.subjects.map((data)=>{
+        return {
+          'id':data.id,
+          'name':data.name
+        }
+      })
     },
 
     async getTeachers() {
       let urlText = 'getTeachers';
 
       this.teachers = await this.get(urlText);
+      this.teachers = this.teachers.map((data)=>{
+        return {
+          'id':data.id,
+          'name':data.full_name
+        }
+      })
     },
 
     async addTimeTableRecord(e) {
