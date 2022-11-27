@@ -16,7 +16,6 @@ export default {
     post(urlText, formData) {
       let url = this.apiUrl + "/api/" + urlText;
       let postResponse = axios.post(url, formData).then((response) => {
-        
         return response;
       });
 
