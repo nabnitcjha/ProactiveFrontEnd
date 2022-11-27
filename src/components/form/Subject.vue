@@ -9,7 +9,7 @@
           <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="subject_first_name" class="form-label"><img :src="icons.First_name" />&nbsp;First name</label>
-              <input type="text" class="form-control" id="subject_first_name" required v-model="subject.First_name">
+              <input type="text" class="form-control" id="subject_first_name" required v-model="subject.name">
               <!-- <div class="valid-feedback">
                 Looks good!
               </div> -->
