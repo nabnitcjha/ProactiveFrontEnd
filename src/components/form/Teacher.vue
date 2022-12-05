@@ -148,6 +148,7 @@ export default {
       let urlText = 'addTeacher';
 
       postResponse = await this.post(urlText, formData);
+      this.teacher={};
     },
   }
 };

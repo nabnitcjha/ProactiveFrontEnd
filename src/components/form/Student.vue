@@ -236,6 +236,7 @@ export default {
       let urlText = 'addStudent';
 
       postResponse = await this.post(urlText, formData);
+      this.student ={};
 
     },
     changeField(event, type, parent) {
