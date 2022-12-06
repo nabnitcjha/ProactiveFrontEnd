@@ -143,8 +143,8 @@ export default {
     async getStudents() {
       let urlText = 'getStudents';
 
-      this.students = await this.get(urlText);
-      this.students = this.students.map((data)=>{
+      let stuRec = await this.get(urlText);
+      this.students = stuRec.map((data)=>{
         return {
           'id':data.id,
           'name':data.full_name
@@ -155,8 +155,8 @@ export default {
     async getSubjects() {
       let urlText = 'getSubjects';
 
-      this.subjects = await this.get(urlText);
-      this.subjects = this.subjects.map((data)=>{
+      let subRec = await this.get(urlText);
+      this.subjects = subRec.map((data)=>{
         return {
           'id':data.id,
           'name':data.name
@@ -167,8 +167,8 @@ export default {
     async getTeachers() {
       let urlText = 'getTeachers';
 
-      this.teachers = await this.get(urlText);
-      this.teachers = this.teachers.map((data)=>{
+      let tecRec = await this.get(urlText);
+      this.teachers = tecRec.map((data)=>{
         return {
           'id':data.id,
           'name':data.full_name
