@@ -237,6 +237,7 @@ export default {
 
       postResponse = await this.post(urlText, formData);
       this.student ={};
+      this.dynamicParentList = [];
 
     },
     changeField(event, type, parent) {
