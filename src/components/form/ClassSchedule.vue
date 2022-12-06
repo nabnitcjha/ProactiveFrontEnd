@@ -56,7 +56,7 @@
                 <div class="week-days col-12 d-flex justify-content-between p-5">
                   <div class="" v-for="(day, index) in weekDays" :key="index">
                     <input style="position: inherit" type="checkbox" class="custom-control-input" :id="index"
-                      :checked="repeatDays.includes(day.id)" @click="selectStudent($event, day.id, day, index)" />
+                      :checked="repeatDays.includes(day.id)" @click="selectRepeatDays($event, day.id, day, index)" />
                     <label class="custom-control-label" :for="index">{{
                         day.name
                     }}</label>
@@ -140,7 +140,7 @@ export default {
       return date < today;
     },
 
-    selectStudent(event, day) {
+    selectRepeatDays(event, day) {
       if (event.target.checked) {
         let days = [...this.repeatDays];
         days.push(day);
