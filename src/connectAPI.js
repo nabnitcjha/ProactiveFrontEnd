@@ -21,12 +21,16 @@ export default {
 
       return postResponse;
     },
-    get(urlText, id = 0,allowPagination=false) {
+    async get(urlText, id = 0, allowPagination = false) {
       let url =
         id == 0
-          ? this.apiUrl + "/api/" + urlText+"allowPagination="+allowPagination
-          : this.apiUrl + "/api/" + urlText + id;
-      let getResponse = axios.get(url).then((response) => {
+          ? this.apiUrl +
+            "/api/" +
+            urlText +
+            "?allowPagination=" +
+            allowPagination
+          : this.apiUrl + "/api/" + urlText + "/" + id;
+      let getResponse = await axios.get(url).then((response) => {
         return response;
       });
 
@@ -87,7 +91,7 @@ export default {
               event.preventDefault();
               event.stopPropagation();
             }
-            
+
             form.classList.add("was-validated");
             if (form.checkValidity()) {
               event.preventDefault();
