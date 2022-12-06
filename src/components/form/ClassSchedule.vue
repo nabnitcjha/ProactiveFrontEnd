@@ -261,8 +261,8 @@ export default {
     },
     initialCall() {
       this.getStudents();
-      // this.getSubjects();
-      // this.getTeachers();
+      this.getSubjects();
+      this.getTeachers();
     },
   },
   mounted() {
