@@ -141,9 +141,11 @@ export default {
     },
 
     async getStudents() {
+      debugger;
       let urlText = 'getStudents';
 
       let stuRec = await this.get(urlText);
+      debugger;
       this.students = stuRec.map((data)=>{
         return {
           'id':data.id,
@@ -261,8 +263,8 @@ export default {
     },
     initialCall() {
       this.getStudents();
-      this.getSubjects();
-      this.getTeachers();
+      // this.getSubjects();
+      // this.getTeachers();
     },
   },
   mounted() {
