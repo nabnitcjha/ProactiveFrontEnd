@@ -22,7 +22,7 @@
               <label for="teacher" class="form-label">Teacher</label>
               <multiselect v-model="selectedTeacher" :options="teachers" :searchable="true" :close-on-select="false"
                 :allow-empty="false" :preselect-first="true" label="name" placeholder="Select Teacher" track-by="id"
-                @input="updateSelectedTeacher"></multiselect>
+                ></multiselect>
             </div>
 
             <div class="col-md-4">
@@ -140,6 +140,18 @@ export default {
       return date < today;
     },
 
+    selectStudent(event, day) {
+      if (event.target.checked) {
+        let days = [...this.repeatDays];
+        days.push(day);
+        this.repeatDays = days;
+      } else {
+        let days = [...this.repeatDays];
+        let items = days.filter((dayName) => dayName !== day);
+        this.repeatDays = items;
+      }
+    },
+
     async getStudents() {
       let urlText = 'getStudents';
 
@@ -220,9 +232,6 @@ export default {
           let startDate = this.dateFormater(this.classStartDate);
 
           let endDate = this.dateFormater(this.classEndDate);
-          let end_time_am_pm = await this.single_dateFormater_AM_PM(
-            this.classEndTime
-          );
 
           startDate = this.timeAndDate(startDate, startTime);
           endDate = this.timeAndDate(endDate, endTime);
@@ -242,6 +251,7 @@ export default {
       }
 
       this.slotTimes = slotTimes;
+      debugger;
       let formData = new FormData();
       formData.append("class_schedule_info[subject_id]", this.selectedSubject.id);
       formData.append("class_schedule_info[teacher_id]", this.selectedTeacher.id);
@@ -251,8 +261,7 @@ export default {
       formData.append("class_schedule_info[event_message]", this.event_message);
       formData.append("class_schedule_info[selected_day]", this.repeatDays);
       formData.append("class_schedule_info[session_repeat]", this.sessionRepeat);
-      formData.append("class_schedule_info[session_id]", this.editSessionId);
-
+      debugger;
       axios.post("/api/addTimeTable", formData).then((res) => {
         this.slotTimes = [];
       });
