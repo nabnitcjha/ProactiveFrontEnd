@@ -242,18 +242,16 @@ export default {
       }
 
       this.slotTimes = slotTimes;
-      let formData = {};
-      formData["subject_id"] = this.selectedSubject.id;
-      formData["teacher_id"] = this.selectedTeacher.id;
-      formData["students"] = this.selectedStudent;
-      formData["topic"] = this.topic;
-      formData["slotTimes"] = this.slotTimes;
-      formData["event_message"] = this.event_message;
-
-      formData["selected_day"] = this.repeatDays;
-      formData["session_repeat"] = this.sessionRepeat;
-      formData["pageType"] = this.titleInfo.pageType;
-      formData["session_id"] = this.editSessionId;
+      let formData = new FormData();
+      formData.append("class_schedule_info[subject_id]", this.selectedSubject.id);
+      formData.append("class_schedule_info[teacher_id]", this.selectedTeacher.id);
+      formData.append("class_schedule_info[students]", JSON.stringify(this.selectedStudent));
+      formData.append("class_schedule_info[topic]", this.topic);
+      formData.append("class_schedule_info[slotTimes]", JSON.stringify(this.slotTimes));
+      formData.append("class_schedule_info[event_message]", this.event_message);
+      formData.append("class_schedule_info[selected_day]", this.repeatDays);
+      formData.append("class_schedule_info[session_repeat]", this.sessionRepeat);
+      formData.append("class_schedule_info[session_id]", this.editSessionId);
 
       axios.post("/api/addTimeTable", formData).then((res) => {
         this.slotTimes = [];
