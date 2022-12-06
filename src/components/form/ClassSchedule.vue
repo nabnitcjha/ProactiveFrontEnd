@@ -259,12 +259,14 @@ export default {
       formData.append("class_schedule_info[topic]", this.topic);
       formData.append("class_schedule_info[slotTimes]", JSON.stringify(this.slotTimes));
       formData.append("class_schedule_info[event_message]", this.event_message);
-      formData.append("class_schedule_info[selected_day]", this.repeatDays);
+      formData.append("class_schedule_info[selected_day]", JSON.stringify(this.repeatDays));
       formData.append("class_schedule_info[session_repeat]", this.sessionRepeat);
-      debugger;
-      axios.post("/api/addTimeTable", formData).then((res) => {
-        this.slotTimes = [];
-      });
+      let postResponse = {};
+      let urlText = 'addTimeTable';
+
+      postResponse = await this.post(urlText, formData);
+      this.slotTimes = [];
+
     },
     initialCall() {
       this.getStudents();
