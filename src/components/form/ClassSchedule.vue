@@ -251,7 +251,7 @@ export default {
       }
 
       this.slotTimes = slotTimes;
-      debugger;
+      
       let formData = new FormData();
       formData.append("class_schedule_info[subject_id]", this.selectedSubject.id);
       formData.append("class_schedule_info[teacher_id]", this.selectedTeacher.id);
@@ -262,9 +262,10 @@ export default {
       formData.append("class_schedule_info[selected_day]", JSON.stringify(this.repeatDays));
       formData.append("class_schedule_info[session_repeat]", this.sessionRepeat);
       let postResponse = {};
-      let urlText = 'addTimeTable';
-
+      let urlText = 'addTimetable';
+      
       postResponse = await this.post(urlText, formData);
+      
       this.slotTimes = [];
 
     },
