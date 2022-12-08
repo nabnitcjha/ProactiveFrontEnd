@@ -56,7 +56,7 @@
   <!-- end bread crumb -->
 </div><!-- End Page Title -->
 
-<section class="section dashboard">
+<section class="section dashboard profile">
 <!-- start main center area -->
 <router-view></router-view>
 <!-- end main center area -->

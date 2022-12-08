@@ -26,6 +26,11 @@ const routes = [
     name: 'editStudent',
     component: () => import('../views/form/student/EditStudent.vue')
   },
+  {
+    path: '/student-detail',
+    name: 'studentDetail',
+    component: () => import('../views/detail/StudentDetail.vue')
+  },
   // teacher
   {
     path: '/add-teacher',
@@ -36,6 +41,11 @@ const routes = [
     path: '/edit-teacher',
     name: 'editTeacher',
     component: () => import('../views/form/teacher/EditTeacher.vue')
+  },
+  {
+    path: '/teacher-detail',
+    name: 'teacherDetail',
+    component: () => import('../views/detail/TeacherDetail.vue')
   },
   // subject
   {
