@@ -15,6 +15,12 @@ const routes = [
     name: 'dashboard',
     component: () => import('../views/Dashboard.vue')
   },
+   // calendar
+   {
+    path: '/calendar',
+    name: 'calendar',
+    component: () => import('../views/Calendar.vue')
+  },
   // student
   {
     path: '/add-student',
