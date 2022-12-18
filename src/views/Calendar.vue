@@ -1,6 +1,7 @@
 <template>
+<v-app>
   <div class="text-center">
-    <v-app>
+    
 
    
     <v-btn
@@ -72,8 +73,9 @@
         mdi-android
       </v-icon>
     </v-btn>
- </v-app>
+ 
   </div>
+  </v-app>
 </template>
 <script>
 import Calendar from "../components/calendar/Calendar.vue";
