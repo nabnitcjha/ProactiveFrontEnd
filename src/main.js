@@ -19,8 +19,11 @@ import * as rules from "vee-validate/dist/rules";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 
-import Vuetify from 'vuetify'
+// import Vuetify from 'vuetify'
+
+import vuetify from './plugins/vuetify'
 import 'vuetify/dist/vuetify.min.css'
+
 
 // Install VeeValidate rules and localization
 Object.keys(rules).forEach((rule) => {
@@ -57,9 +60,10 @@ Vue.use(Plugin);
 Vue.use(axios);
 Vue.mixin(connectAPI);
 Vue.mixin(momentMethod);
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
 new Vue({
+  vuetify,
   components: { Fragment },
   router,
   pinia,
