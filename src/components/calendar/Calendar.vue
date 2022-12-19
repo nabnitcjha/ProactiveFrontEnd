@@ -1,4 +1,5 @@
 <template>
+  <v-app>
     <v-row class="fill-height">
       <v-col>
         <v-sheet height="64">
@@ -129,7 +130,8 @@
           </v-menu>
         </v-sheet>
       </v-col>
-    </v-row>
+    </v-row> 
+   </v-app>
   </template>
   <script>
   export default {
