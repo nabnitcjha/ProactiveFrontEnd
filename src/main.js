@@ -24,6 +24,9 @@ import "vue2-datepicker/index.css";
 import vuetify from './plugins/vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
+// common component
+import DeleteModal from "./components/common/DeleteModal.vue";
+
 
 // Install VeeValidate rules and localization
 Object.keys(rules).forEach((rule) => {
@@ -37,6 +40,7 @@ Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
 Vue.component("multiselect", Multiselect);
 Vue.component("date-picker", DatePicker);
+Vue.component("delete-modal", DeleteModal);
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
