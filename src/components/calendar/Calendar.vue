@@ -1,85 +1,5 @@
 <template>
   <fragment>
-    <delete-modal
-      @confirm-delete="confirmDelete"
-      @close-modal="closeModel"
-      :showDeleteModel="showDeleteModel"
-      :userType="userType"
-    ></delete-modal>
-    <vs-modal v-model="showStartModel" class="modal-ac">
-      <div slot="modal-header" class="modal-header">
-        <span class="hp-3-title">Meet with | Join with </span>
-        <v-icon @click.stop="modalClose"> mdi-close-circle</v-icon>
-      </div>
-      <div slot="modal-body" class="modal-body">
-        <div class="form-group col-sm-12 col-lg-12">
-          <div class="zoom-link">
-            <input
-              v-model="zoomLink"
-              type="text"
-              class="form-control remove-border"
-              id="zoomlink"
-              placeholder="add link"
-              @input="saveZoomLink"
-            />
-            <i class="fa fa-copy" @click.stop="copyZoomLink"></i>
-          </div>
-          <div
-            class="button btn-session pointer-hand col-3 mt-2 mx-auto go-to-link"
-            @click.stop="openLink"
-          >
-            Go to Link
-          </div>
-        </div>
-      </div>
-      <div slot="modal-footer" class="modal-footer"></div>
-    </vs-modal>
-    <vs-modal v-model="openMeetwith" class="modal-ac">
-      <div slot="modal-header" class="modal-header">
-        <span class="hp-3-title"
-          ><b style="color: green">Sesseion Description :</b>
-          {{ event_message }}
-        </span>
-        <v-icon @click.stop="modalClose"> mdi-close-circle</v-icon>
-      </div>
-
-      <div slot="modal-footer" class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-success"
-          @click.stop="goToDetailPage"
-        >
-          Yes
-        </button>
-        <button type="button" class="btn btn-danger" @click.stop="modalClose">
-          No
-        </button>
-      </div>
-    </vs-modal>
-    <vs-modal v-model="editOpen" class="modal-ac update-modal">
-      <div slot="modal-header" class="modal-header">
-        <span class="hp-3-title">Update Slot </span>
-        <v-icon @click.stop="modalClose"> mdi-close-circle</v-icon>
-      </div>
-      <div slot="modal-body" class="modal-body">
-        <class-schedule
-          :titleInfo="titleInfo"
-          :currentEvent="currentEvent"
-        ></class-schedule>
-      </div>
-      <div slot="modal-footer" class="modal-footer" style="visibility: hidden">
-        <button
-          type="button"
-          class="btn btn-success"
-          @click.stop="goToDetailPage"
-        >
-          Yes
-        </button>
-        <button type="button" class="btn btn-danger" @click.stop="modalClose">
-          No
-        </button>
-      </div>
-    </vs-modal>
     <v-row class="fill-height">
       <v-col>
         <v-sheet height="64">
@@ -224,6 +144,8 @@
   </fragment>
 </template>
 <script>
+import CalendarMonthDragComponent from "./CalendarMonthDrag.vue";
+import {loginInfoStore} from '../../stores/loginInfo';
 import { mapState } from 'pinia'
 export default {
   data: () => ({
@@ -275,6 +197,9 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
+  components:{
+    'calendar-month-drag-component':CalendarMonthDragComponent
+  },
   computed: {
     ...mapState(loginInfoStore, ['getLoginInfo']),
   },
@@ -601,6 +526,7 @@ export default {
       nativeEvent.stopPropagation();
     },
    async updateRange() {
+    
       // this.show = true;
       let formData = {};
       const events = [];
@@ -621,9 +547,9 @@ export default {
 
       let postResponse={};
       let urlText = 'getTimetables';
-      postResponse = await this.get(urlText,formData);
-      debugger;
-      this.slots = postResponse.data;
+      postResponse = await this.get(urlText);
+      
+      this.slots = postResponse.data.data;
         this.slots.map((data) => {
           events.push({
             id: data.id,

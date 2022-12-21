@@ -22,7 +22,7 @@ export default {
       return postResponse;
     },
     async get(urlText, id = 0, allowPagination = false) {
-      debugger;
+      
       let url =
         id == 0
           ? this.apiUrl +
@@ -32,7 +32,7 @@ export default {
             allowPagination
           : this.apiUrl + "/api/" + urlText;
       let getResponse = await axios.get(url).then((response) => {
-        debugger;
+        
         return response;
       });
 
