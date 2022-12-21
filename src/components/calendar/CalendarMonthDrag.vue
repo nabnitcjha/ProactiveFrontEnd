@@ -98,17 +98,7 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
-  props: {
-    focus: String,
-  },
-  watch: {
-    focus: function (val, oldVal) {
-      if (val == "") {
-        this.value = val;
-        this.$emit("calendar-today-title", this.currentMonthName);
-      }
-    },
-  },
+ 
   methods: {
     deleteSlot() {
       this.$emit("delete-slot");
