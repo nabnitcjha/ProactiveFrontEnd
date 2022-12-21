@@ -224,8 +224,10 @@
   </fragment>
 </template>
 <script>
+import { mapState } from 'pinia'
 export default {
   data: () => ({
+    userType:'',
     showDeleteModel: false,
     currentEvent: {},
     currentZoomLink: "",
@@ -273,6 +275,9 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
+  computed: {
+    ...mapState(loginInfoStore, ['getLoginInfo']),
+  },
   mounted() {
     this.$refs.calendar.checkChange();
   },
@@ -393,7 +398,7 @@ export default {
         this.createStart = this.roundTime(mouse);
       }
     },
-    mouseMove(tms) {
+    async mouseMove(tms) {
       const mouse = this.toTime(tms);
 
       if (this.dragEvent && this.dragTime !== null) {
@@ -410,18 +415,16 @@ export default {
         this.dragEvent.start = new Date(newStart);
         this.dragEvent.end = new Date(newEnd);
         let formData = {};
+        let urlText = 'timetable/'+this.dragEvent.id+'/drag';
 
         formData["id"] = this.dragEvent.id;
-        formData["end_time"] = this.single_dateFormater(this.dragEvent.end);
-        formData["start_time"] = this.single_dateFormater(this.dragEvent.start);
-        formData["start_date"] = this.single_dateFormater(this.dragEvent.start);
-        formData["end_date"] = this.single_dateFormater(this.dragEvent.end);
-        formData["time_am_pm"] = this.start_end_time(
-          this.dragEvent.start,
-          this.dragEvent.end
-        );
+        formData["start_date"] = this.timeAndDate(this.dragEvent.start);
+        formData["end_date"] = this.timeAndDate(this.dragEvent.end);
 
-        axios.post("/api/updateDragTimeTable", formData).then((response) => {});
+        formData["email"] = this.login.email;
+        formData["password"] = this.login.password;
+        let patchResponse = await this.patch(urlText, formData);
+
       } else if (this.createEvent && this.createStart !== null) {
         const mouseRounded = this.roundTime(mouse, false);
         const min = Math.min(mouseRounded, this.createStart);
@@ -597,34 +600,30 @@ export default {
 
       nativeEvent.stopPropagation();
     },
-    updateRange() {
+   async updateRange() {
       // this.show = true;
       let formData = {};
       const events = [];
-      if (this.$route.name == "studentCalendarDetail") {
-        formData["student_id"] = this.$route.params.student_id;
-        formData["submode"] = "admin-student";
-      }
-      if (this.$route.name == "teacherCalendarDetail") {
-        formData["teacher_id"] = this.$route.params.teacher_id;
-        formData["submode"] = "admin-teacher";
-      }
+      this.userType = this.getLoginInfo.user.role[0];
 
       if (this.userType == "teacher") {
         formData["mode"] = "teacher";
-        formData["teacher_id"] = this.user.teacher.id;
+        formData["teacher_id"] = this.getLoginInfo.user.teacher.id;
       } else if (this.userType == "student") {
         formData["mode"] = "student";
-        formData["student_id"] = this.user.student.id;
+        formData["student_id"] = this.getLoginInfo.user.student.id;
       } else if (this.userType == "parent") {
         formData["mode"] = "parent";
-        formData["parent_id"] = this.user.parent.id;
+        formData["parent_id"] = this.getLoginInfo.user.parent.id;
       } else {
         formData["mode"] = "admin";
       }
 
-      axios.post("/api/getSlots", formData).then((response) => {
-        this.slots = response.data.result;
+      let postResponse={};
+      let urlText = 'getTimetables';
+      postResponse = await this.get(urlText,formData);
+      debugger;
+      this.slots = postResponse.data;
         this.slots.map((data) => {
           events.push({
             id: data.id,
@@ -642,7 +641,27 @@ export default {
             subject: data.subject,
           });
         });
-      });
+
+      // axios.post("/api/getSlots", formData).then((response) => {
+      //   this.slots = response.data.result;
+      //   this.slots.map((data) => {
+      //     events.push({
+      //       id: data.id,
+      //       name: data.topic,
+      //       color: this.colors[this.rnd(0, this.colors.length - 1)],
+      //       start: new Date(data.start_date),
+      //       end: new Date(data.end_date),
+      //       timed: data.start_date,
+      //       event_message: data.event_message,
+      //       students: data.student,
+      //       teacher: data.teacher,
+      //       session_id: data.session_id,
+      //       zoomLink: data.zoomLink,
+      //       teacher: data.teacher,
+      //       subject: data.subject,
+      //     });
+      //   });
+      // });
 
       this.events = events;
       this.show = false;

@@ -14,16 +14,15 @@ export default {
     ...mapActions(loginInfoStore, ["setAuthenticate"]),
 
     post(urlText, formData) {
-      
       let url = this.apiUrl + "/api/" + urlText;
       let postResponse = axios.post(url, formData).then((response) => {
-        
         return response;
       });
 
       return postResponse;
     },
     async get(urlText, id = 0, allowPagination = false) {
+      debugger;
       let url =
         id == 0
           ? this.apiUrl +
@@ -31,8 +30,9 @@ export default {
             urlText +
             "/allowPagination=" +
             allowPagination
-          : this.apiUrl + "/api/" + urlText + "/" + id;
+          : this.apiUrl + "/api/" + urlText;
       let getResponse = await axios.get(url).then((response) => {
+        debugger;
         return response;
       });
 
@@ -46,16 +46,16 @@ export default {
 
       return putResponse;
     },
-    patch(urlText, id) {
-      let url = this.apiUrl + "/api/" + urlText + id;
-      let patchResponse = axios.patch(url).then((response) => {
+    patch(urlText, formData) {
+      let url = this.apiUrl + "/api/" + urlText;
+      let patchResponse = axios.patch(url, formData).then((response) => {
         return response;
       });
 
       return patchResponse;
     },
-    delete(urlText, id) {
-      let url = this.apiUrl + "/api/" + urlText + id;
+    delete(urlText) {
+      let url = this.apiUrl + "/api/" + urlText;
       let deleteResponse = axios.delete(url).then((response) => {
         return response;
       });
