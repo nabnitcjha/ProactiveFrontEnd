@@ -181,17 +181,25 @@ export default {
         const newStartTime = mouse - this.dragTime;
         const newStart = this.roundTime(newStartTime);
         const newEnd = newStart + duration;
+        let todayDate = this.dateFormater(new Date());
+        let targetDate = this.dateFormater(new Date(newStart));
 
-        this.dragEvent.start = new Date(newStart);
-        this.dragEvent.end = new Date(newEnd);
+        if (moment(targetDate).isBefore(todayDate)) {
+          this.isDisable = true;
+        }else{
+          this.isDisable = false;
+          this.dragEvent.start = new Date(newStart);
+          this.dragEvent.end = new Date(newEnd);
+        }
+        
+      
       }
     },
+    
     async endDrag() {
-      console.log('inside end drag');
-      console.log('start time',this.dragEvent.start);
-      console.log('end time',this.dragEvent.end);
-      console.log('start format',this.dateAndTimeFormater(this.dragEvent.start));
-      let formData = {};
+
+      if (!this.isDisable) {
+        let formData = {};
       let urlText = "timetable/" + this.dragEvent.id + "/drag";
 
       formData["id"] = this.dragEvent.id;
@@ -199,6 +207,8 @@ export default {
       formData["end_date"] = this.dateAndTimeFormater(this.dragEvent.end);
 
       let patchResponse = await this.post(urlText, formData);
+      }
+     
       this.dragTime = null;
       this.dragEvent = null;
       this.createEvent = null;
