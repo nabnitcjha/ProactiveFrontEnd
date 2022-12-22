@@ -348,9 +348,7 @@ export default {
         formData["start_date"] = this.timeAndDate(this.dragEvent.start);
         formData["end_date"] = this.timeAndDate(this.dragEvent.end);
 
-        formData["email"] = this.login.email;
-        formData["password"] = this.login.password;
-        let patchResponse = await this.patch(urlText, formData);
+        let patchResponse = await this.post(urlText, formData);
 
       } else if (this.createEvent && this.createStart !== null) {
         const mouseRounded = this.roundTime(mouse, false);
