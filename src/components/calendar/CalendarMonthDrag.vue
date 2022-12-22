@@ -70,7 +70,7 @@
 import moment from "moment";
 export default {
   data: () => ({
-    userType:'',
+    userType: "",
     isStudent: false,
     isTeacher: false,
     currentMonthName: "",
@@ -98,7 +98,7 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
- 
+
   methods: {
     deleteSlot() {
       this.$emit("delete-slot");
@@ -165,7 +165,7 @@ export default {
       if (this.dragEvent) {
         const start = this.dragEvent.start;
         this.dragTime = mouse - start;
-      } 
+      }
     },
     extendBottom(event) {
       this.createEvent = event;
@@ -184,17 +184,21 @@ export default {
 
         this.dragEvent.start = new Date(newStart);
         this.dragEvent.end = new Date(newEnd);
-        let formData = {};
-        let urlText = "timetable/" + this.dragEvent.id + "/drag";
-
-        formData["id"] = this.dragEvent.id;
-        formData["start_date"] = this.timeAndDate(this.dragEvent.start);
-        formData["end_date"] = this.timeAndDate(this.dragEvent.end);
-
-        let patchResponse = await this.post(urlText, formData);
       }
     },
-    endDrag() {
+    async endDrag() {
+      console.log('inside end drag');
+      console.log('start time',this.dragEvent.start);
+      console.log('end time',this.dragEvent.end);
+      console.log('start format',this.dateAndTimeFormater(this.dragEvent.start));
+      let formData = {};
+      let urlText = "timetable/" + this.dragEvent.id + "/drag";
+
+      formData["id"] = this.dragEvent.id;
+      formData["start_date"] = this.dateAndTimeFormater(this.dragEvent.start);
+      formData["end_date"] = this.dateAndTimeFormater(this.dragEvent.end);
+
+      let patchResponse = await this.post(urlText, formData);
       this.dragTime = null;
       this.dragEvent = null;
       this.createEvent = null;
@@ -247,8 +251,7 @@ export default {
         ? `rgba(${r}, ${g}, ${b}, 0.7)`
         : event.color;
     },
-  async  getEvents({ start, end }) {
-    
+    async getEvents({ start, end }) {
       this.$emit("set-focus", this.value);
 
       let formData = {};
@@ -267,29 +270,29 @@ export default {
       } else {
         formData["mode"] = "admin";
       }
-      
-      let postResponse={};
-      let urlText = 'getTimetables';
+
+      let postResponse = {};
+      let urlText = "getTimetables";
       postResponse = await this.get(urlText);
-      
+
       this.slots = postResponse.data.data;
-        this.slots.map((data) => {
-          events.push({
-            id: data.id,
-            name: data.topic,
-            color: this.colors[this.rnd(0, this.colors.length - 1)],
-            start: new Date(data.start_date),
-            end: new Date(data.end_date),
-            timed: data.start_date,
-            event_message: data.event_message,
-            students: data.student,
-            teacher: data.teacher,
-            session_id: data.session_id,
-            zoomLink: data.zoomLink,
-            teacher: data.teacher,
-            subject: data.subject,
-          });
+      this.slots.map((data) => {
+        events.push({
+          id: data.id,
+          name: data.topic,
+          color: this.colors[this.rnd(0, this.colors.length - 1)],
+          start: new Date(data.start_date),
+          end: new Date(data.end_date),
+          timed: data.start_date,
+          event_message: data.event_message,
+          students: data.student,
+          teacher: data.teacher,
+          session_id: data.session_id,
+          zoomLink: data.zoomLink,
+          teacher: data.teacher,
+          subject: data.subject,
         });
+      });
 
       this.events = events;
     },
