@@ -45,3 +45,15 @@ span.custom-checkbox {
   border-color: #fff;
   background-color: #fff;
 }
+
+.modal-tall .modal-dialog {
+  margin-right: 0!important;
+}
+ 
+.modal.fade.modal-tall .modal-dialog {
+  transform: translate(125%, 0px);
+}
+
+.modal.show.modal-tall .modal-dialog {
+  transform: none;
+}

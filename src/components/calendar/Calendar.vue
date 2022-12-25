@@ -1,157 +1,167 @@
 <template>
   <fragment>
     <v-app>
-    <v-row class="fill-height">
-      <v-col>
-        <v-sheet height="64">
-          <v-toolbar flat>
-            <v-btn
-              outlined
-              class="mr-4"
-              color="grey darken-2"
-              @click.stop="setToday"
-            >
-              Today
-            </v-btn>
-            <v-btn fab text small color="grey darken-2" @click.stop="prev">
-              <v-icon small> mdi-chevron-left </v-icon>
-            </v-btn>
-            <v-btn fab text small color="grey darken-2" @click.stop="next">
-              <v-icon small> mdi-chevron-right </v-icon>
-            </v-btn>
-            <v-toolbar-title v-if="$refs.calendar">
-              {{ $refs.calendar.title }}
-            </v-toolbar-title>
-            <v-toolbar-title v-else>
-              {{ calendarTitle }}
-            </v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-menu bottom right>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn outlined color="grey darken-2" v-bind="attrs" v-on="on">
-                  <span>{{ typeToLabel[type] }}</span>
-                  <v-icon right> mdi-menu-down </v-icon>
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item @click.stop="type = 'day'">
-                  <v-list-item-title>Day</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click.stop="type = 'week'">
-                  <v-list-item-title>Week</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click.stop="type = 'month'">
-                  <v-list-item-title>Month</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click.stop="type = '4day'">
-                  <v-list-item-title>4 days</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-toolbar>
-        </v-sheet>
-        <calendar-month-drag-component
-          v-if="type == 'month'"
-          @change-type="currentType"
-          @open-edit="openEdit"
-          @send-email="sendEmail"
-          @close-model="closeModel"
-          @open-detail-model="openDetailModel"
-          @view-day="monthViewDay"
-          @calendar-title="calTitle"
-          @set-focus="setFocus"
-          @calendar-today-title="calendarTodayTitle"
-          @start-class="startClass"
-          @current-zoom-link="saveCurrentZoomLink"
-          @delete-slot="deleteSlot"
-          :focus="focus"
-        ></calendar-month-drag-component>
+      <v-row class="fill-height">
+        <v-col>
+          <v-sheet height="64">
+            <v-toolbar flat>
+              <v-btn
+                outlined
+                class="mr-4"
+                color="grey darken-2"
+                @click.stop="setToday"
+              >
+                Today
+              </v-btn>
+              <v-btn fab text small color="grey darken-2" @click.stop="prev">
+                <v-icon small> mdi-chevron-left </v-icon>
+              </v-btn>
+              <v-btn fab text small color="grey darken-2" @click.stop="next">
+                <v-icon small> mdi-chevron-right </v-icon>
+              </v-btn>
+              <v-toolbar-title v-if="$refs.calendar">
+                {{ $refs.calendar.title }}
+              </v-toolbar-title>
+              <v-toolbar-title v-else>
+                {{ calendarTitle }}
+              </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-menu bottom right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    outlined
+                    color="grey darken-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <span>{{ typeToLabel[type] }}</span>
+                    <v-icon right> mdi-menu-down </v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item @click.stop="type = 'day'">
+                    <v-list-item-title>Day</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click.stop="type = 'week'">
+                    <v-list-item-title>Week</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click.stop="type = 'month'">
+                    <v-list-item-title>Month</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click.stop="type = '4day'">
+                    <v-list-item-title>4 days</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-toolbar>
+          </v-sheet>
+          <calendar-month-drag-component
+            v-if="type == 'month'"
+            @change-type="currentType"
+            @open-edit="openEdit"
+            @send-email="sendEmail"
+            @close-model="closeModel"
+            @open-detail-model="openDetailModel"
+            @view-day="monthViewDay"
+            @calendar-title="calTitle"
+            @set-focus="setFocus"
+            @calendar-today-title="calendarTodayTitle"
+            @start-class="startClass"
+            @current-zoom-link="saveCurrentZoomLink"
+            @delete-slot="deleteSlot"
+            :focus="focus"
+          ></calendar-month-drag-component>
 
-        <v-sheet height="600" v-else>
-          <v-calendar
-            ref="calendar"
-            v-model="focus"
-            color="primary"
-            :events="events"
-            :event-color="getEventColor"
-            :type="type"
-            @click:event="showEvent"
-            @click:more="viewDay"
-            @click:date="viewDay"
-            @change="updateRange"
-            @mousedown:event="startDrag"
-            @mousedown:time="startTime"
-            @mousemove:time="mouseMove"
-            @mouseup:time="endDrag"
-            @mouseleave.native="cancelDrag"
-          >
-            <template v-slot:event="{ event, timed, eventSummary }">
-              <div class="v-event-draggable">
-                <component :is="{ render: eventSummary }"></component>
+          <v-sheet height="600" v-else>
+            <v-calendar
+              ref="calendar"
+              v-model="focus"
+              color="primary"
+              :events="events"
+              :event-color="getEventColor"
+              :type="type"
+              @click:event="showEvent"
+              @click:more="viewDay"
+              @click:date="viewDay"
+              @change="updateRange"
+              @mousedown:event="startDrag"
+              @mousedown:time="startTime"
+              @mousemove:time="mouseMove"
+              @mouseup:time="endDrag"
+              @mouseleave.native="cancelDrag"
+            >
+              <template v-slot:event="{ event, timed, eventSummary }">
+                <div class="v-event-draggable">
+                  <component :is="{ render: eventSummary }"></component>
+                </div>
+                <div
+                  v-if="timed"
+                  class="v-event-drag-bottom"
+                  @mousedown.stop="extendBottom(event)"
+                ></div>
+                <div class="custom-p">
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#dayDragModal"
+                  >
+                    {{ event.name }}{{ " "
+                    }}{{ dateAndTimeFormater(event.start) }}
+                  </button>
+                </div>
+              </template>
+            </v-calendar>
+            <!-- modal start -->
+            <div
+              class="modal fade modal-tall"
+              id="dayDragModal"
+              tabindex="-1"
+              aria-labelledby="dayDragModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="dayDragModalLabel">
+                      Modal title
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">...</div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div
-                v-if="timed"
-                class="v-event-drag-bottom"
-                @mousedown.stop="extendBottom(event)"
-              ></div>
-              <div class="custom-p">
-                {{ event.name }}{{ " " }}{{ time_am_pm(event.start) }}
-              </div>
-            </template>
-          </v-calendar>
-          <v-menu
-            v-model="selectedOpen"
-            :activator="selectedElement"
-            offset-x
-            v-if="type != 'month'"
-          >
-            <v-card color="grey lighten-4" min-width="350px" flat>
-              <v-toolbar :color="selectedEvent.color" dark>
-                <v-btn icon @click.stop="openEdit">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-                <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-btn icon @click.stop="sendEmail">
-                  <v-icon>mdi-email</v-icon>
-                </v-btn>
-              </v-toolbar>
-              <v-card-text>
-                <span
-                  v-html="selectedEvent.teacher.first_name"
-                  v-if="isTeacher && selectedEvent.teacher != null"
-                ></span
-                ><br />
-                <span v-html="selectedEvent.event_message"></span>
-                <br />
-                <span v-html="selectedEvent.start"></span>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn text color="secondary" @click.stop="deleteSlot">
-                  Cancel
-                </v-btn>
-                <v-btn text color="secondary" @click.stop="openDetailModel">
-                  Detail
-                </v-btn>
-                <v-btn text color="secondary" @click.stop="startClass">
-                  Zoom
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-menu>
-        </v-sheet>
-      </v-col>
-    </v-row>
-  </v-app>
+            </div>
+            <!-- modal end -->
+          </v-sheet>
+        </v-col>
+      </v-row>
+    </v-app>
   </fragment>
 </template>
 <script>
 import CalendarMonthDragComponent from "./CalendarMonthDrag.vue";
-import {loginInfoStore} from '../../stores/loginInfo';
-import { mapState } from 'pinia'
+import { loginInfoStore } from "../../stores/loginInfo";
+import { mapState } from "pinia";
 export default {
   data: () => ({
-    userType:'',
+    userType: "",
     showDeleteModel: false,
     currentEvent: {},
     currentZoomLink: "",
@@ -199,11 +209,11 @@ export default {
     createStart: null,
     extendOriginal: null,
   }),
-  components:{
-    'calendar-month-drag-component':CalendarMonthDragComponent
+  components: {
+    "calendar-month-drag-component": CalendarMonthDragComponent,
   },
   computed: {
-    ...mapState(loginInfoStore, ['getLoginInfo']),
+    ...mapState(loginInfoStore, ["getLoginInfo"]),
   },
   mounted() {
     this.$refs.calendar.checkChange();
@@ -342,14 +352,13 @@ export default {
         this.dragEvent.start = new Date(newStart);
         this.dragEvent.end = new Date(newEnd);
         let formData = {};
-        let urlText = 'timetable/'+this.dragEvent.id+'/drag';
+        let urlText = "timetable/" + this.dragEvent.id + "/drag";
 
         formData["id"] = this.dragEvent.id;
         formData["start_date"] = this.timeAndDate(this.dragEvent.start);
         formData["end_date"] = this.timeAndDate(this.dragEvent.end);
 
         let patchResponse = await this.post(urlText, formData);
-
       } else if (this.createEvent && this.createStart !== null) {
         const mouseRounded = this.roundTime(mouse, false);
         const min = Math.min(mouseRounded, this.createStart);
@@ -525,8 +534,7 @@ export default {
 
       nativeEvent.stopPropagation();
     },
-   async updateRange() {
-    
+    async updateRange() {
       // this.show = true;
       let formData = {};
       const events = [];
@@ -545,28 +553,28 @@ export default {
         formData["mode"] = "admin";
       }
 
-      let postResponse={};
-      let urlText = 'getTimetables';
+      let postResponse = {};
+      let urlText = "getTimetables";
       postResponse = await this.get(urlText);
-      
+
       this.slots = postResponse.data.data;
-        this.slots.map((data) => {
-          events.push({
-            id: data.id,
-            name: data.topic,
-            color: this.colors[this.rnd(0, this.colors.length - 1)],
-            start: new Date(data.start_date),
-            end: new Date(data.end_date),
-            timed: data.start_date,
-            event_message: data.event_message,
-            students: data.student,
-            teacher: data.teacher,
-            session_id: data.session_id,
-            zoomLink: data.zoomLink,
-            teacher: data.teacher,
-            subject: data.subject,
-          });
+      this.slots.map((data) => {
+        events.push({
+          id: data.id,
+          name: data.topic,
+          color: this.colors[this.rnd(0, this.colors.length - 1)],
+          start: new Date(data.start_date),
+          end: new Date(data.end_date),
+          timed: data.start_date,
+          event_message: data.event_message,
+          students: data.student,
+          teacher: data.teacher,
+          session_id: data.session_id,
+          zoomLink: data.zoomLink,
+          teacher: data.teacher,
+          subject: data.subject,
         });
+      });
 
       // axios.post("/api/getSlots", formData).then((response) => {
       //   this.slots = response.data.result;

@@ -22,54 +22,65 @@
         <!-- <div class="v-event-draggable">
           <component :is="{ render: eventSummary }"></component>
         </div> -->
+        
         <div
           v-if="timed"
           class="v-event-drag-bottom"
           @mousedown.stop="extendBottom(event)"
         ></div>
         <div class="custom-p">
-          {{ event.name }}{{ " " }}{{ dateAndTimeFormater(event.start) }}
+          <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#monthDragModal"
+        >
+        {{ event.name }}{{ " " }}{{ dateAndTimeFormater(event.start) }}
+
+        </button>
         </div>
       </template>
     </v-calendar>
-    <v-menu v-model="selectedOpen" :activator="selectedElement" offset-x>
-      <v-card color="grey lighten-4" min-width="350px" flat>
-        <v-toolbar :color="selectedEvent.color" dark>
-          <v-btn icon @click.stop="openEdit">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-btn icon @click.stop="sendEmail">
-            <v-icon>mdi-email</v-icon>
-          </v-btn>
-        </v-toolbar>
-        <v-card-text>
-          <span
-            v-html="selectedEvent.teacher.first_name"
-            v-if="isTeacher && selectedEvent.teacher != null"
-          ></span
-          ><br />
-          <span v-html="selectedEvent.event_message"></span> <br />
-          <span v-html="selectedEvent.start"></span>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn text color="secondary" @click.stop="deleteSlot">
-            Cancel
-          </v-btn>
-          <v-btn text color="secondary" @click.stop="openDetailModel">
-            Detail
-          </v-btn>
-          <v-btn text color="secondary" @click.stop="startClass"> Zoom </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-menu>
+    <!-- modal start -->
+    <div
+      class="modal fade modal-tall"
+      id="monthDragModal"
+      tabindex="-1"
+      aria-labelledby="monthDragModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="monthDragModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->
   </v-sheet>
 </template>
 <script>
 import moment from "moment";
 export default {
   data: () => ({
+    rightSidebar: false,
     userType: "",
     isStudent: false,
     isTeacher: false,
@@ -316,3 +327,4 @@ export default {
   },
 };
 </script>
+ 

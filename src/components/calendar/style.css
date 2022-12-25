@@ -1,7 +1,8 @@
 .modal-tall .modal-dialog {
-  height: 90%;
   margin-right: 0!important;
 }
-.modal-tall .modal-content {
-  height: 100%;
+ 
+.modal-tall.fade:not(.in)  .modal-tall .modal-dialog {
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
 }
