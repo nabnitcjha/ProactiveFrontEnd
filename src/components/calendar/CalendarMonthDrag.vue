@@ -19,9 +19,9 @@
       @mouseleave.native="cancelDrag"
     >
       <template v-slot:event="{ event, timed, eventSummary }">
-        <div class="v-event-draggable">
+        <!-- <div class="v-event-draggable">
           <component :is="{ render: eventSummary }"></component>
-        </div>
+        </div> -->
         <div
           v-if="timed"
           class="v-event-drag-bottom"
@@ -186,29 +186,26 @@ export default {
 
         if (moment(targetDate).isBefore(todayDate)) {
           this.isDisable = true;
-        }else{
+        } else {
           this.isDisable = false;
           this.dragEvent.start = new Date(newStart);
           this.dragEvent.end = new Date(newEnd);
         }
-        
-      
       }
     },
-    
-    async endDrag() {
 
+    async endDrag() {
       if (!this.isDisable) {
         let formData = {};
-      let urlText = "timetable/" + this.dragEvent.id + "/drag";
+        let urlText = "timetable/" + this.dragEvent.id + "/drag";
 
-      formData["id"] = this.dragEvent.id;
-      formData["start_date"] = this.dateAndTimeFormater(this.dragEvent.start);
-      formData["end_date"] = this.dateAndTimeFormater(this.dragEvent.end);
+        formData["id"] = this.dragEvent.id;
+        formData["start_date"] = this.dateAndTimeFormater(this.dragEvent.start);
+        formData["end_date"] = this.dateAndTimeFormater(this.dragEvent.end);
 
-      let patchResponse = await this.post(urlText, formData);
+        let patchResponse = await this.post(urlText, formData);
       }
-     
+
       this.dragTime = null;
       this.dragEvent = null;
       this.createEvent = null;
