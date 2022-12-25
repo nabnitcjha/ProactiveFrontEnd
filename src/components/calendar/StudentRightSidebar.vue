@@ -26,18 +26,10 @@
 </fragment>
 </template>
 <script>
-import $ from 'jquery';
 import "./style.css";
 export default {
   // props: {
   //   rightSidebar: Boolean,
   // },
-mounted(){
-  $ (document).ready (function () {
-	$ (".modal a").not (".dropdown-toggle").on ("click", function () {
-		$ (".modal").modal ("hide");
-	});
-});
-}
-};
+  }
 </script>
