@@ -28,6 +28,8 @@ import 'vuetify/dist/vuetify.min.css'
 import DeleteModal from "./components/common/DeleteModal.vue";
 import ClassSchedule from "./components/form/ClassSchedule.vue";
 import SlotCalendar from "./components/calendar/Calendar.vue";
+import StudentRightSidebar from "./components/calendar/StudentRightSidebar.vue";
+import TeacherRightSidebar from "./components/calendar/TeacherRightSidebar.vue";
 
 
 // Install VeeValidate rules and localization
@@ -46,6 +48,9 @@ Vue.component("delete-modal", DeleteModal);
 Vue.component("class-schedule", ClassSchedule);
 Vue.component("slot-calendar", SlotCalendar);
 
+Vue.component("student-right-sidebar", StudentRightSidebar);
+Vue.component("teacher-right-sidebar", TeacherRightSidebar);
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import Fragment from "vue-fragment";
@@ -55,6 +60,8 @@ import piniaPersist from "pinia-plugin-persist";
 
 // Choose Locale
 moment.locale("en");
+
+
 
 Vue.use(PiniaVuePlugin);
 const pinia = createPinia();
