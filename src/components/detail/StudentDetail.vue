@@ -160,8 +160,36 @@
                                   Classes
                                 </div>
                                 <div class="col-lg-9 col-md-8">
-                                  Kevin Anderson
+                                  <button type="button" class="" data-bs-toggle="modal" data-bs-target="#calendarAccordingSlot">Calendar View</button>
                                 </div>
+                                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                    <div
+                                      class="modal fade"
+                                      id="calendarAccordingSlot"
+                                      aria-hidden="true"
+                                      aria-labelledby="calendarAccordingSlotLabel"
+                                      tabindex="-1"
+                                    >
+                                      <div
+                                        class="modal-dialog modal-lg"
+                                      >
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button
+                                              type="button"
+                                              class="btn-close"
+                                              data-bs-dismiss="modal"
+                                              aria-label="Close"
+                                            ></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <slot-calendar></slot-calendar>
+                                          </div>
+                                           
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                               </div>
 
                               <div class="row">
@@ -183,12 +211,10 @@
                               </div>
 
                               <div class="row">
-                                <div class="col-lg-3 col-md-4 label">
-                                  Email
-                                </div>
+                                <div class="col-lg-3 col-md-4 label">Email</div>
                                 <div class="col-lg-9 col-md-8">USA</div>
                               </div>
-                              
+
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Phone</div>
                                 <div class="col-lg-9 col-md-8">
@@ -198,7 +224,6 @@
                             </div>
                           </div>
                         </div>
-                       
                       </div>
                       <!-- End Accordion without outline borders -->
                     </div>
