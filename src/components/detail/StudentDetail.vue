@@ -157,43 +157,6 @@
                             <div class="accordion-body">
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">
-                                  Classes
-                                </div>
-                                <div class="col-lg-9 col-md-8">
-                                  <button type="button" class="" data-bs-toggle="modal" data-bs-target="#calendarAccordingSlot">Calendar View</button>
-                                </div>
-                                <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                                    <div
-                                      class="modal fade"
-                                      id="calendarAccordingSlot"
-                                      aria-hidden="true"
-                                      aria-labelledby="calendarAccordingSlotLabel"
-                                      tabindex="-1"
-                                    >
-                                      <div
-                                        class="modal-dialog modal-lg"
-                                      >
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <button
-                                              type="button"
-                                              class="btn-close"
-                                              data-bs-dismiss="modal"
-                                              aria-label="Close"
-                                            ></button>
-                                          </div>
-                                          <div class="modal-body">
-                                            <slot-calendar></slot-calendar>
-                                          </div>
-                                           
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-
-                              <div class="row">
-                                <div class="col-lg-3 col-md-4 label">
                                   Subjects
                                 </div>
                                 <div class="col-lg-9 col-md-8">
@@ -221,6 +184,16 @@
                                   (436) 486-3538 x29071
                                 </div>
                               </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                  Classes
+                                </div>
+                                <div class="col-lg-9 col-md-8">
+                                  <slot-calendar></slot-calendar>
+                                </div>
+                              </div>
+                              
                             </div>
                           </div>
                         </div>
