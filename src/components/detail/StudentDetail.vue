@@ -155,72 +155,57 @@
                             data-bs-parent="#accordionFlushExample"
                           >
                             <div class="accordion-body">
-                              Placeholder content for this accordion, which is
-                              intended to demonstrate the
-                              <code>.accordion-flush</code> class. This is the
-                              first item's accordion body.
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                  Full Name
+                                </div>
+                                <div class="col-lg-9 col-md-8">
+                                  Kevin Anderson
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                  Subjects
+                                </div>
+                                <div class="col-lg-9 col-md-8">
+                                  Lueilwitz, Wisoky and Leuschke
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                  Parents
+                                </div>
+                                <div class="col-lg-9 col-md-8">
+                                  Web Designer
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                  Classes
+                                </div>
+                                <div class="col-lg-9 col-md-8">USA</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Email</div>
+                                <div class="col-lg-9 col-md-8">
+                                  A108 Adam Street, New York, NY 535022
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Phone</div>
+                                <div class="col-lg-9 col-md-8">
+                                  (436) 486-3538 x29071
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingTwo">
-                            <button
-                              class="accordion-button collapsed"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseTwo"
-                              aria-expanded="false"
-                              aria-controls="flush-collapseTwo"
-                            >
-                              Accordion Item #2
-                            </button>
-                          </h2>
-                          <div
-                            id="flush-collapseTwo"
-                            class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingTwo"
-                            data-bs-parent="#accordionFlushExample"
-                          >
-                            <div class="accordion-body">
-                              Placeholder content for this accordion, which is
-                              intended to demonstrate the
-                              <code>.accordion-flush</code> class. This is the
-                              second item's accordion body. Let's imagine this
-                              being filled with some actual content.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingThree">
-                            <button
-                              class="accordion-button collapsed"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseThree"
-                              aria-expanded="false"
-                              aria-controls="flush-collapseThree"
-                            >
-                              Accordion Item #3
-                            </button>
-                          </h2>
-                          <div
-                            id="flush-collapseThree"
-                            class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingThree"
-                            data-bs-parent="#accordionFlushExample"
-                          >
-                            <div class="accordion-body">
-                              Placeholder content for this accordion, which is
-                              intended to demonstrate the
-                              <code>.accordion-flush</code> class. This is the
-                              third item's accordion body. Nothing more exciting
-                              happening here in terms of content, but just
-                              filling up the space to make it look, at least at
-                              first glance, a bit more representative of how
-                              this would look in a real-world application.
-                            </div>
-                          </div>
-                        </div>
+                       
                       </div>
                       <!-- End Accordion without outline borders -->
                     </div>
