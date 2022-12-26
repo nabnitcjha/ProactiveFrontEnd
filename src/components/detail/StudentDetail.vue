@@ -157,7 +157,7 @@
                             <div class="accordion-body">
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">
-                                  Full Name
+                                  Classes
                                 </div>
                                 <div class="col-lg-9 col-md-8">
                                   Kevin Anderson
@@ -175,7 +175,7 @@
 
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">
-                                  Parents
+                                  Send Message
                                 </div>
                                 <div class="col-lg-9 col-md-8">
                                   Web Designer
@@ -184,18 +184,11 @@
 
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">
-                                  Classes
+                                  Email
                                 </div>
                                 <div class="col-lg-9 col-md-8">USA</div>
                               </div>
-
-                              <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Email</div>
-                                <div class="col-lg-9 col-md-8">
-                                  A108 Adam Street, New York, NY 535022
-                                </div>
-                              </div>
-
+                              
                               <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Phone</div>
                                 <div class="col-lg-9 col-md-8">
