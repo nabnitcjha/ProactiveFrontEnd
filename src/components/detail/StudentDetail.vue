@@ -160,7 +160,7 @@
                                   Subjects
                                 </div>
                                 <div class="col-lg-9 col-md-8">
-                                  Lueilwitz, Wisoky and Leuschke
+                                  <span class="badge rounded-pill bg-warning text-dark">Math</span>
                                 </div>
                               </div>
 
@@ -193,7 +193,7 @@
                                   <slot-calendar></slot-calendar>
                                 </div>
                               </div>
-                              
+
                             </div>
                           </div>
                         </div>
