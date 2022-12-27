@@ -208,7 +208,7 @@
                                   <div class="col-lg-3 col-md-4 label">
                                     Classes
                                   </div>
-                                  <div class="col-lg-9 col-md-8">
+                                  <div class="col-lg-9 col-md-8" v-if="showTeacherCalendar">
                                     <slot-calendar></slot-calendar>
                                   </div>
                                 </div>
@@ -293,8 +293,8 @@
 
                   <div class="tab-pane fade pt-3" id="profile-classes">
                     <!-- Settings Form -->
-                    <form>
-                      <div class="row mb-3">
+                    <form v-if="showAllCalendar">
+                      <div class="row mb-3" >
                         <slot-calendar></slot-calendar>
                       </div>
                     </form>
@@ -376,6 +376,8 @@ export default {
   data() {
     return {
       show: false,
+      showTeacherCalendar:false,
+      showAllCalendar:false,
     };
   },
   methods: {
@@ -387,6 +389,8 @@ export default {
       let getResponse = await this.get(urlText, formData);
     },
     async teacherProfile() {
+      this.showTeacherCalendar = true;
+      this.showAllCalendar = false;
       let id = 1;
       let formData = {};
       let urlText = "student/" + id + "/teachers";
@@ -401,6 +405,8 @@ export default {
       let getResponse = await this.get(urlText, formData);
     },
     async allClasses() {
+      this.showTeacherCalendar = false;
+      this.showAllCalendar = true;
       let id = 1;
       let formData = {};
       let urlText = "student/" + id + "/Classes";
