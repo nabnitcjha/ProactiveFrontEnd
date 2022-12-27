@@ -389,7 +389,7 @@ export default {
     async teacherProfile() {
       let id = 1;
       let formData = {};
-      let urlText = "teacher/" + id + "/student";
+      let urlText = "teacher/" + id + "/students";
 
       let getResponse = await this.get(urlText, formData);
     },
