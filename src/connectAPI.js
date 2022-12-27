@@ -46,14 +46,6 @@ export default {
 
       return putResponse;
     },
-    patch(urlText, formData) {
-      let url = this.apiUrl + "/api/" + urlText;
-      let patchResponse = axios.patch(url, formData).then((response) => {
-        return response;
-      });
-
-      return patchResponse;
-    },
     delete(urlText) {
       let url = this.apiUrl + "/api/" + urlText;
       let deleteResponse = axios.delete(url).then((response) => {

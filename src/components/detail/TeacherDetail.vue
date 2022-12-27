@@ -375,25 +375,45 @@
 export default {
   data() {
     return {
-      show:false
+      show: false,
     };
   },
   methods: {
-    profileOverview() {
+    async profileOverview() {
+      let id = 1;
+      let formData = {};
+      let urlText = "teacher/" + id + "/profileOverview";
 
+      let getResponse = await this.get(urlText, formData);
     },
-    teacherProfile(){
+    async teacherProfile() {
+      let id = 1;
+      let formData = {};
+      let urlText = "teacher/" + id + "/student";
 
+      let getResponse = await this.get(urlText, formData);
     },
-    groupDiscussion(){
+    async groupDiscussion() {
+      let id = 1;
+      let formData = {};
+      let urlText = "teacher/" + id + "/groupDiscussion";
 
+      let getResponse = await this.get(urlText, formData);
     },
-    allClasses(){
+    async allClasses() {
+      let id = 1;
+      let formData = {};
+      let urlText = "teacher/" + id + "/Classes";
 
+      let getResponse = await this.get(urlText, formData);
     },
-    changePassword(){
-      
-    }
+    async changePassword() {
+      let id = 1;
+      let formData = {};
+      let urlText = "teacher/" + id + "/changePassword";
+
+      let putResponse = await this.put(urlText, formData);
+    },
   },
 };
 </script>
