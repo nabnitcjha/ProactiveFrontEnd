@@ -102,24 +102,188 @@
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Full Name</div>
-                      <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                      <div class="col-lg-9 col-md-8">
+                        {{ profile_overview.student_info.full_name }}
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Classes</div>
+                      <div class="col-lg-9 col-md-8">
+                        <div
+                          class="accordion accordion-flush"
+                          v-bind:id="'overview_class_accordion' + index"
+                          v-for="(
+                            class_info, index
+                          ) in profile_overview.class_schedule_info"
+                          :key="index"
+                        >
+                          <div class="accordion-item">
+                            <h2
+                              class="accordion-header"
+                              v-bind:id="'overview_class_heading' + index"
+                            >
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                v-bind:data-bs-target="
+                                  '#' + 'flush-overview_class_accordion' + index
+                                "
+                                aria-expanded="false"
+                                v-bind:aria-controls="
+                                  'flush-overview_class_accordion' + index
+                                "
+                              >
+                                {{ class_info.topic }}
+                              </button>
+                            </h2>
+                            <div
+                              v-bind:id="
+                                'flush-overview_class_accordion' + index
+                              "
+                              class="accordion-collapse collapse"
+                              v-bind:aria-labelledby="
+                                'flush-overview_class_heading' + index
+                              "
+                              v-bind:data-bs-parent="
+                                '#' + 'overview_class_accordion' + index
+                              "
+                            >
+                              <div class="accordion-body">
+                                <ul class="list-group">
+                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
+                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
+                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Teacher</div>
+                      <div class="col-lg-9 col-md-8">
+                        <div
+                          class="accordion accordion-flush"
+                          id="overview_teacher_accordion"
+                        >
+                          <div class="accordion-item">
+                            <h2
+                              class="accordion-header"
+                              id="flush-overview_teacher_heading"
+                            >
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-overview_teacher_accordion"
+                                aria-expanded="false"
+                                aria-controls="flush-overview_teacher_accordion"
+                              >
+                                Accordion Item #1
+                              </button>
+                            </h2>
+                            <div
+                              id="flush-overview_teacher_accordion"
+                              class="accordion-collapse collapse"
+                              aria-labelledby="flush-overview_teacher_heading"
+                              data-bs-parent="#overview_teacher_accordion"
+                            >
+                              <div class="accordion-body">
+                                Placeholder content for this accordion, which is
+                                intended to demonstrate the
+                                <code>.accordion-flush</code> class. This is the
+                                first item's accordion body.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Subjects</div>
                       <div class="col-lg-9 col-md-8">
-                        Lueilwitz, Wisoky and Leuschke
+                        <div
+                          class="accordion accordion-flush"
+                          id="overview_subject_accordion"
+                        >
+                          <div class="accordion-item">
+                            <h2
+                              class="accordion-header"
+                              id="flush-overview_subject_heading"
+                            >
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-overview_subject_accordion"
+                                aria-expanded="false"
+                                aria-controls="flush-overview_subject_accordion"
+                              >
+                                Accordion Item #1
+                              </button>
+                            </h2>
+                            <div
+                              id="flush-overview_subject_accordion"
+                              class="accordion-collapse collapse"
+                              aria-labelledby="flush-overview_subject_heading"
+                              data-bs-parent="#overview_subject_accordion"
+                            >
+                              <div class="accordion-body">
+                                Placeholder content for this accordion, which is
+                                intended to demonstrate the
+                                <code>.accordion-flush</code> class. This is the
+                                first item's accordion body.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Parents</div>
-                      <div class="col-lg-9 col-md-8">Web Designer</div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Classes</div>
-                      <div class="col-lg-9 col-md-8">USA</div>
+                      <div class="col-lg-9 col-md-8">
+                        <div
+                          class="accordion accordion-flush"
+                          id="overview_parent_accordion"
+                        >
+                          <div class="accordion-item">
+                            <h2
+                              class="accordion-header"
+                              id="flush-overview_parent_heading"
+                            >
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-overview_parent_accordion"
+                                aria-expanded="false"
+                                aria-controls="flush-overview_parent_accordion"
+                              >
+                                Accordion Item #1
+                              </button>
+                            </h2>
+                            <div
+                              id="flush-overview_parent_accordion"
+                              class="accordion-collapse collapse"
+                              aria-labelledby="flush-overview_parent_heading"
+                              data-bs-parent="#overview_parent_accordion"
+                            >
+                              <div class="accordion-body">
+                                Placeholder content for this accordion, which is
+                                intended to demonstrate the
+                                <code>.accordion-flush</code> class. This is the
+                                first item's accordion body.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="row">
@@ -208,7 +372,10 @@
                                   <div class="col-lg-3 col-md-4 label">
                                     Classes
                                   </div>
-                                  <div class="col-lg-9 col-md-8" v-if="showTeacherCalendar">
+                                  <div
+                                    class="col-lg-9 col-md-8"
+                                    v-if="showTeacherCalendar"
+                                  >
                                     <slot-calendar></slot-calendar>
                                   </div>
                                 </div>
@@ -294,7 +461,7 @@
                   <div class="tab-pane fade pt-3" id="profile-classes">
                     <!-- Settings Form -->
                     <form v-if="showAllCalendar">
-                      <div class="row mb-3" >
+                      <div class="row mb-3">
                         <slot-calendar></slot-calendar>
                       </div>
                     </form>
@@ -376,12 +543,12 @@ export default {
   data() {
     return {
       show: false,
-      showTeacherCalendar:false,
-      showAllCalendar:false,
-      profile_overview:{}
+      showTeacherCalendar: false,
+      showAllCalendar: false,
+      profile_overview: {},
     };
   },
-  mounted(){
+  mounted() {
     this.profileOverview();
   },
   methods: {

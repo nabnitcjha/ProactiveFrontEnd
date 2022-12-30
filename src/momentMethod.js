@@ -10,7 +10,7 @@ export default {
       return date < today;
     },
     time_am_pm(val) {
-      return moment(val).format("hh:mm a");
+      return moment(val).format("YYYY-MM-DD hh:mm a");
     },
 
     start_end_time(start, end) {
