@@ -220,11 +220,13 @@
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Subject</div>
-                      <div class="col-lg-9 col-md-8"  v-for="(
+                      <div class="col-lg-9 col-md-8">
+                        <span class="badge rounded-pill text-bg-warning mr-2"
+                        v-for="(
                             sub_info, index
                           ) in profile_overview.subject_info"
-                          :key="index">
-                        <span class="badge rounded-pill text-bg-warning">{{ sub_info.name }}</span>
+                          :key="index"
+                        >{{ sub_info.name }}</span>
                       </div>
                     </div>
 
@@ -286,13 +288,13 @@
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Email</div>
                       <div class="col-lg-9 col-md-8">
-                        A108 Adam Street, New York, NY 535022
+                         {{ profile_overview.student_info.email }}
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Phone</div>
-                      <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                      <div class="col-lg-9 col-md-8">{{ profile_overview.student_info.phone }}</div>
                     </div>
                   </div>
 
