@@ -164,39 +164,54 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Teacher</div>
+                      <div class="col-lg-3 col-md-4 label">Teachers</div>
                       <div class="col-lg-9 col-md-8">
                         <div
                           class="accordion accordion-flush"
-                          id="overview_teacher_accordion"
+                          v-bind:id="'overview_teacher_accordion' + index"
+                          v-for="(
+                            class_info, index
+                          ) in profile_overview.class_schedule_info"
+                          :key="index"
                         >
                           <div class="accordion-item">
                             <h2
                               class="accordion-header"
-                              id="flush-overview_teacher_heading"
+                              v-bind:id="'overview_teacher_heading' + index"
                             >
                               <button
                                 class="accordion-button collapsed"
                                 type="button"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#flush-overview_teacher_accordion"
+                                v-bind:data-bs-target="
+                                  '#' + 'flush-overview_teacher_accordion' + index
+                                "
                                 aria-expanded="false"
-                                aria-controls="flush-overview_teacher_accordion"
+                                v-bind:aria-controls="
+                                  'flush-overview_teacher_accordion' + index
+                                "
                               >
-                                Accordion Item #1
+                                {{ class_info.topic }}
                               </button>
                             </h2>
                             <div
-                              id="flush-overview_teacher_accordion"
+                              v-bind:id="
+                                'flush-overview_teacher_accordion' + index
+                              "
                               class="accordion-collapse collapse"
-                              aria-labelledby="flush-overview_teacher_heading"
-                              data-bs-parent="#overview_teacher_accordion"
+                              v-bind:aria-labelledby="
+                                'flush-overview_teacher_heading' + index
+                              "
+                              v-bind:data-bs-parent="
+                                '#' + 'overview_teacher_accordion' + index
+                              "
                             >
                               <div class="accordion-body">
-                                Placeholder content for this accordion, which is
-                                intended to demonstrate the
-                                <code>.accordion-flush</code> class. This is the
-                                first item's accordion body.
+                                <ul class="list-group">
+                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
+                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
+                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                </ul>
                               </div>
                             </div>
                           </div>
@@ -205,43 +220,12 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Subjects</div>
-                      <div class="col-lg-9 col-md-8">
-                        <div
-                          class="accordion accordion-flush"
-                          id="overview_subject_accordion"
-                        >
-                          <div class="accordion-item">
-                            <h2
-                              class="accordion-header"
-                              id="flush-overview_subject_heading"
-                            >
-                              <button
-                                class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#flush-overview_subject_accordion"
-                                aria-expanded="false"
-                                aria-controls="flush-overview_subject_accordion"
-                              >
-                                Accordion Item #1
-                              </button>
-                            </h2>
-                            <div
-                              id="flush-overview_subject_accordion"
-                              class="accordion-collapse collapse"
-                              aria-labelledby="flush-overview_subject_heading"
-                              data-bs-parent="#overview_subject_accordion"
-                            >
-                              <div class="accordion-body">
-                                Placeholder content for this accordion, which is
-                                intended to demonstrate the
-                                <code>.accordion-flush</code> class. This is the
-                                first item's accordion body.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div class="col-lg-3 col-md-4 label">Subject</div>
+                      <div class="col-lg-9 col-md-8"  v-for="(
+                            sub_info, index
+                          ) in profile_overview.subject_info"
+                          :key="index">
+                        <span class="badge rounded-pill text-bg-warning">{{ sub_info.name }}</span>
                       </div>
                     </div>
 
@@ -250,35 +234,50 @@
                       <div class="col-lg-9 col-md-8">
                         <div
                           class="accordion accordion-flush"
-                          id="overview_parent_accordion"
+                          v-bind:id="'overview_parent_accordion' + index"
+                          v-for="(
+                            class_info, index
+                          ) in profile_overview.class_schedule_info"
+                          :key="index"
                         >
                           <div class="accordion-item">
                             <h2
                               class="accordion-header"
-                              id="flush-overview_parent_heading"
+                              v-bind:id="'overview_parent_heading' + index"
                             >
                               <button
                                 class="accordion-button collapsed"
                                 type="button"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#flush-overview_parent_accordion"
+                                v-bind:data-bs-target="
+                                  '#' + 'flush-overview_parent_accordion' + index
+                                "
                                 aria-expanded="false"
-                                aria-controls="flush-overview_parent_accordion"
+                                v-bind:aria-controls="
+                                  'flush-overview_parent_accordion' + index
+                                "
                               >
-                                Accordion Item #1
+                                {{ class_info.topic }}
                               </button>
                             </h2>
                             <div
-                              id="flush-overview_parent_accordion"
+                              v-bind:id="
+                                'flush-overview_parent_accordion' + index
+                              "
                               class="accordion-collapse collapse"
-                              aria-labelledby="flush-overview_parent_heading"
-                              data-bs-parent="#overview_parent_accordion"
+                              v-bind:aria-labelledby="
+                                'flush-overview_parent_heading' + index
+                              "
+                              v-bind:data-bs-parent="
+                                '#' + 'overview_parent_accordion' + index
+                              "
                             >
                               <div class="accordion-body">
-                                Placeholder content for this accordion, which is
-                                intended to demonstrate the
-                                <code>.accordion-flush</code> class. This is the
-                                first item's accordion body.
+                                <ul class="list-group">
+                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
+                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
+                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                </ul>
                               </div>
                             </div>
                           </div>
