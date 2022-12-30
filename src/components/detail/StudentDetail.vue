@@ -152,9 +152,18 @@
                             >
                               <div class="accordion-body">
                                 <ul class="list-group">
-                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
-                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
-                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                  <li class="list-group-item">
+                                    <b>START : </b
+                                    >{{ time_am_pm(class_info.start_date) }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>END : </b
+                                    >{{ time_am_pm(class_info.end_date) }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>DESCRIPTION :</b
+                                    >{{ class_info.description }}
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -184,7 +193,9 @@
                                 type="button"
                                 data-bs-toggle="collapse"
                                 v-bind:data-bs-target="
-                                  '#' + 'flush-overview_teacher_accordion' + index
+                                  '#' +
+                                  'flush-overview_teacher_accordion' +
+                                  index
                                 "
                                 aria-expanded="false"
                                 v-bind:aria-controls="
@@ -208,8 +219,12 @@
                             >
                               <div class="accordion-body">
                                 <ul class="list-group">
-                                  <li class="list-group-item"><b>EMAIL : </b>{{thr_info.user.email  }}</li>
-                                  <li class="list-group-item"><b>PHONE : </b>{{thr_info.phone  }}</li>
+                                  <li class="list-group-item">
+                                    <b>EMAIL : </b>{{ thr_info.user.email }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>PHONE : </b>{{ thr_info.phone }}
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -221,12 +236,14 @@
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Subject</div>
                       <div class="col-lg-9 col-md-8">
-                        <span class="badge rounded-pill text-bg-warning mr-2"
-                        v-for="(
+                        <span
+                          class="badge rounded-pill text-bg-warning mr-2"
+                          v-for="(
                             sub_info, index
                           ) in profile_overview.subject_info"
                           :key="index"
-                        >{{ sub_info.name }}</span>
+                          >{{ sub_info.name }}</span
+                        >
                       </div>
                     </div>
 
@@ -251,7 +268,9 @@
                                 type="button"
                                 data-bs-toggle="collapse"
                                 v-bind:data-bs-target="
-                                  '#' + 'flush-overview_parent_accordion' + index
+                                  '#' +
+                                  'flush-overview_parent_accordion' +
+                                  index
                                 "
                                 aria-expanded="false"
                                 v-bind:aria-controls="
@@ -275,8 +294,12 @@
                             >
                               <div class="accordion-body">
                                 <ul class="list-group">
-                                  <li class="list-group-item"><b>EMAIL : </b>{{prnt_info.user.email  }}</li>
-                                  <li class="list-group-item"><b>PHONE : </b>{{prnt_info.phone  }}</li>
+                                  <li class="list-group-item">
+                                    <b>EMAIL : </b>{{ prnt_info.user.email }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>PHONE : </b>{{ prnt_info.phone }}
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -288,13 +311,15 @@
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Email</div>
                       <div class="col-lg-9 col-md-8">
-                         {{ profile_overview.student_info.email }}
+                        {{ profile_overview.student_info.email }}
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Phone</div>
-                      <div class="col-lg-9 col-md-8">{{ profile_overview.student_info.phone }}</div>
+                      <div class="col-lg-9 col-md-8">
+                        {{ profile_overview.student_info.phone }}
+                      </div>
                     </div>
                   </div>
 
