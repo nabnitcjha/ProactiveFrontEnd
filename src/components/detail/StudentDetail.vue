@@ -378,7 +378,11 @@ export default {
       show: false,
       showTeacherCalendar:false,
       showAllCalendar:false,
+      profile_overview:{}
     };
+  },
+  mounted(){
+    this.profileOverview();
   },
   methods: {
     async profileOverview() {
@@ -387,6 +391,7 @@ export default {
       let urlText = "student/" + id + "/profileOverview";
 
       let getResponse = await this.get(urlText, formData);
+      this.profile_overview = getResponse.data.data;
     },
     async teacherProfile() {
       this.showTeacherCalendar = true;
