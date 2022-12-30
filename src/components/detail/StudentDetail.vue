@@ -170,8 +170,8 @@
                           class="accordion accordion-flush"
                           v-bind:id="'overview_teacher_accordion' + index"
                           v-for="(
-                            class_info, index
-                          ) in profile_overview.class_schedule_info"
+                            thr_info, index
+                          ) in profile_overview.teacher_info"
                           :key="index"
                         >
                           <div class="accordion-item">
@@ -191,7 +191,7 @@
                                   'flush-overview_teacher_accordion' + index
                                 "
                               >
-                                {{ class_info.topic }}
+                                {{ thr_info.full_name }}
                               </button>
                             </h2>
                             <div
@@ -208,9 +208,8 @@
                             >
                               <div class="accordion-body">
                                 <ul class="list-group">
-                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
-                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
-                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                  <li class="list-group-item"><b>EMAIL : </b>{{thr_info.user.email  }}</li>
+                                  <li class="list-group-item"><b>PHONE : </b>{{thr_info.phone  }}</li>
                                 </ul>
                               </div>
                             </div>
@@ -236,8 +235,8 @@
                           class="accordion accordion-flush"
                           v-bind:id="'overview_parent_accordion' + index"
                           v-for="(
-                            class_info, index
-                          ) in profile_overview.class_schedule_info"
+                            prnt_info, index
+                          ) in profile_overview.parent_info"
                           :key="index"
                         >
                           <div class="accordion-item">
@@ -257,7 +256,7 @@
                                   'flush-overview_parent_accordion' + index
                                 "
                               >
-                                {{ class_info.topic }}
+                                {{ prnt_info.full_name }}
                               </button>
                             </h2>
                             <div
@@ -274,9 +273,8 @@
                             >
                               <div class="accordion-body">
                                 <ul class="list-group">
-                                  <li class="list-group-item"><b>START : </b>{{time_am_pm(class_info.start_date)  }}</li>
-                                  <li class="list-group-item"><b>END : </b>{{time_am_pm(class_info.end_date)  }}</li>
-                                  <li class="list-group-item"><b>DESCRIPTION :</b>{{ class_info.description }}</li>
+                                  <li class="list-group-item"><b>EMAIL : </b>{{prnt_info.user.email  }}</li>
+                                  <li class="list-group-item"><b>PHONE : </b>{{prnt_info.phone  }}</li>
                                 </ul>
                               </div>
                             </div>
