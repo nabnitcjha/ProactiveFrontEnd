@@ -225,6 +225,17 @@
                                   <li class="list-group-item">
                                     <b>PHONE : </b>{{ thr_info.phone }}
                                   </li>
+                                  <li class="list-group-item">
+                                    <span
+                                      class="badge rounded-pill text-bg-warning mr-2"
+                                      v-for="(
+                                        tch_sub_info, index
+                                      ) in profile_overview.teacher_info
+                                        .subject"
+                                      :key="index"
+                                      >{{ tch_sub_info.name }}</span
+                                    >
+                                  </li>
                                 </ul>
                               </div>
                             </div>
