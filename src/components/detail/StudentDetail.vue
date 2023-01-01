@@ -153,11 +153,11 @@
                               <div class="accordion-body">
                                 <ul class="list-group">
                                   <li class="list-group-item">
-                                    <b>START : </b
+                                    <b>START TIME: </b
                                     >{{ timeFormater(class_info.start_date) }}
                                   </li>
                                   <li class="list-group-item">
-                                    <b>END : </b
+                                    <b>END TIME: </b
                                     >{{ timeFormater(class_info.end_date) }}
                                   </li>
                                   <li class="list-group-item">
@@ -176,8 +176,15 @@
                                     >{{ class_info.duration }}
                                   </li>
                                   <li class="list-group-item">
-                                    <b>DESCRIPTION :</b
+                                    <b>DESCRIPTION : </b
                                     >{{ class_info.description }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>TEACHER : </b
+                                    ><span
+                                      class="badge rounded-pill text-bg-warning mr-2">
+                                      {{ class_info.teacher.full_name }}</span
+                                    >
                                   </li>
                                 </ul>
                               </div>
