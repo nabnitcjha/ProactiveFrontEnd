@@ -162,13 +162,18 @@
                                   </li>
                                   <li class="list-group-item">
                                     <b>CLASS DAY :</b
-                                    >{{ class_info.description }}
+                                    ><span
+                                      class="badge rounded-pill text-bg-warning mr-2"
+                                      v-for="(
+                                        cls_selected_day, index
+                                      ) in class_info.selected_day"
+                                      :key="index"
+                                      >{{ findDay(cls_selected_day) }}</span
+                                    >
                                   </li>
                                   <li class="list-group-item">
-                                    <b>DURATION</b><span
-                                      class="badge rounded-pill text-bg-warning mr-2"
-                                      >{{ 'math' }}</span
-                                    >
+                                    <b>DURATION</b
+                                    >{{ class_info.duration }}
                                   </li>
                                   <li class="list-group-item">
                                     <b>DESCRIPTION :</b
@@ -236,12 +241,12 @@
                                     <b>PHONE : </b>{{ thr_info.phone }}
                                   </li>
                                   <li class="list-group-item">
-                                    <b>SUBJECT : </b> <span
+                                    <b>SUBJECT : </b>
+                                    <span
                                       class="badge rounded-pill text-bg-warning mr-2"
                                       v-for="(
                                         tch_sub_info, index
-                                      ) in thr_info
-                                        .subject"
+                                      ) in thr_info.subject"
                                       :key="index"
                                       >{{ tch_sub_info.name }}</span
                                     >
@@ -597,6 +602,24 @@ export default {
     this.profileOverview();
   },
   methods: {
+    findDay(day) {
+      switch (day) {
+        case "0":
+          return 'Sun';
+          case "1":
+          return 'Mon';
+          case "2":
+          return 'Tues';
+          case "3":
+          return 'Wed';
+          case "4":
+          return 'Thurs';
+          case "5":
+          return 'Fri';
+          case "6":
+          return 'Sat';
+      }
+    },
     async profileOverview() {
       let id = 1;
       let formData = {};
