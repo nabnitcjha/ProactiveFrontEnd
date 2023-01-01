@@ -63,7 +63,7 @@
           <div class="modal-body">
             <!-- start body -->
             <div class="card">
-              <div class="card-header">Featured</div>
+              <div class="card-header">Teacher Notes</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -71,7 +71,63 @@
               </ul>
             </div>
             <div class="card">
-              <div class="card-header">Featured</div>
+              <div class="card-header">Assignment</div>
+              <table class="card-table table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">File</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <div class="card-header">Assignment Answer</div>
+              <table class="card-table table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">File</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <div class="card-header">Zoom Link</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -79,15 +135,7 @@
               </ul>
             </div>
             <div class="card">
-              <div class="card-header">Featured</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <div class="card">
-              <div class="card-header">Featured</div>
+              <div class="card-header">Class Video Link</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
