@@ -153,11 +153,11 @@
                               <div class="accordion-body">
                                 <ul class="list-group">
                                   <li class="list-group-item">
-                                    <b>START TIME: </b
+                                    <b>START TIME : </b
                                     >{{ timeFormater(class_info.start_date) }}
                                   </li>
                                   <li class="list-group-item">
-                                    <b>END TIME: </b
+                                    <b>END TIME : </b
                                     >{{ timeFormater(class_info.end_date) }}
                                   </li>
                                   <li class="list-group-item">
