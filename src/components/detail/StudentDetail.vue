@@ -172,7 +172,7 @@
                                     >
                                   </li>
                                   <li class="list-group-item">
-                                    <b>DURATION</b
+                                    <b>DURATION : </b
                                     >{{ class_info.duration }}
                                   </li>
                                   <li class="list-group-item">

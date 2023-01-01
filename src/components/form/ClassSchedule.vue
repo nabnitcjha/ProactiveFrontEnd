@@ -216,7 +216,7 @@ export default {
       slotTimes.push({
         startDate: startDate,
         endDate: endDate,
-        duration:duration
+        duration:duration.toString()
       });
 
       let strtDate = this.classStartDate.setDate(
@@ -243,7 +243,7 @@ export default {
           slotTimes.push({
             startDate: startDate,
             endDate: endDate,
-            duration:duration
+            duration:duration.toString()
           });
         }
 
@@ -266,6 +266,7 @@ export default {
       formData.append("class_schedule_info[description]", this.event_message);
       formData.append("class_schedule_info[selected_day]", JSON.stringify(this.repeatDays));
       formData.append("class_schedule_info[class_repeat]", this.sessionRepeat);
+      
       let postResponse = {};
       let urlText = 'addTimetable';
       
