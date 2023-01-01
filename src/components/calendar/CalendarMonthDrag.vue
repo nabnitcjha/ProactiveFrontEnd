@@ -33,6 +33,7 @@
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#monthDragModal"
+            @click="getSlotInfo(event)"
           >
             {{ event.name }}{{ " " }}{{ dateAndTimeFormater(event.start) }}
           </button>
@@ -221,6 +222,9 @@ export default {
   }),
 
   methods: {
+    getSlotInfo(slot){
+      
+    },
     deleteSlot() {
       this.$emit("delete-slot");
     },
