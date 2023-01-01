@@ -63,7 +63,12 @@
           <div class="modal-body">
             <!-- start body -->
             <div class="card">
-              <div class="card-header">Teacher Notes</div>
+              <div class="card-header d-flex justify-content-between">
+                <span>Teacher Notes</span>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="bi bi-file-plus"></i>
+                </button>
+              </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -71,7 +76,12 @@
               </ul>
             </div>
             <div class="card">
-              <div class="card-header">Assignment</div>
+              <div class="card-header d-flex justify-content-between">
+                <span>Assignment</span>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="bi bi-file-plus"></i>
+                </button>
+              </div>
               <table class="card-table table">
                 <thead>
                   <tr>
@@ -99,7 +109,12 @@
               </table>
             </div>
             <div class="card">
-              <div class="card-header">Assignment Answer</div>
+              <div class="card-header d-flex justify-content-between">
+                <span>Assignment Answer</span>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="bi bi-file-plus"></i>
+                </button>
+              </div>
               <table class="card-table table">
                 <thead>
                   <tr>
@@ -127,7 +142,12 @@
               </table>
             </div>
             <div class="card">
-              <div class="card-header">Zoom Link</div>
+              <div class="card-header d-flex justify-content-between">
+                <span>Zoom Link</span>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="bi bi-file-plus"></i>
+                </button>
+              </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -135,7 +155,12 @@
               </ul>
             </div>
             <div class="card">
-              <div class="card-header">Class Video Link</div>
+              <div class="card-header d-flex justify-content-between">
+                <span>Class Video</span>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="bi bi-file-plus"></i>
+                </button>
+              </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
