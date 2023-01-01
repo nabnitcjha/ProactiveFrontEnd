@@ -22,7 +22,7 @@
         <!-- <div class="v-event-draggable">
           <component :is="{ render: eventSummary }"></component>
         </div> -->
-        
+
         <div
           v-if="timed"
           class="v-event-drag-bottom"
@@ -30,13 +30,12 @@
         ></div>
         <div class="custom-p">
           <button
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#monthDragModal"
-        >
-        {{ event.name }}{{ " " }}{{ dateAndTimeFormater(event.start) }}
-
-        </button>
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#monthDragModal"
+          >
+            {{ event.name }}{{ " " }}{{ dateAndTimeFormater(event.start) }}
+          </button>
         </div>
       </template>
     </v-calendar>
@@ -51,7 +50,9 @@
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="monthDragModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="monthDragModalLabel">
+              Slot Detail
+            </h1>
             <button
               type="button"
               class="btn-close"
@@ -59,7 +60,43 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <!-- start body -->
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+            </div>
+            <!-- end body -->
+          </div>
+
           <div class="modal-footer invisible">
             <button
               type="button"
@@ -327,4 +364,3 @@ export default {
   },
 };
 </script>
- 
