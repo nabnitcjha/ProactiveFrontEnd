@@ -133,40 +133,153 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                     <!-- start body -->
-            <div class="card">
-              <div class="card-header">Featured</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <div class="card">
-              <div class="card-header">Featured</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <div class="card">
-              <div class="card-header">Featured</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <div class="card">
-              <div class="card-header">Featured</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <!-- end body -->
+                    <!-- start body -->
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between">
+                        <span>Teacher Notes</span>
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span
+                            id="boot-icon"
+                            class="bi bi-file-plus"
+                            style="
+                              font-size: 20px;
+                              opacity: 0.3;
+                              -webkit-text-stroke-width: 0px;
+                            "
+                          ></span>
+                        </button>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between">
+                        <span>Assignment</span>
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span
+                            id="boot-icon"
+                            class="bi bi-file-plus"
+                            style="
+                              font-size: 20px;
+                              opacity: 0.3;
+                              -webkit-text-stroke-width: 0px;
+                            "
+                          ></span>
+                        </button>
+                      </div>
+                      <table class="card-table table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between">
+                        <span>Assignment Answer</span>
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span
+                            id="boot-icon"
+                            class="bi bi-file-plus"
+                            style="
+                              font-size: 20px;
+                              opacity: 0.3;
+                              -webkit-text-stroke-width: 0px;
+                            "
+                          ></span>
+                        </button>
+                      </div>
+                      <table class="card-table table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between">
+                        <span>Zoom Link</span>
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span
+                            id="boot-icon"
+                            class="bi bi-file-plus"
+                            style="
+                              font-size: 20px;
+                              opacity: 0.3;
+                              -webkit-text-stroke-width: 0px;
+                            "
+                          ></span>
+                        </button>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <div class="card-header d-flex justify-content-between">
+                        <span>Class Video</span>
+                        <button type="button" class="btn btn-default btn-sm">
+                          <span
+                            id="boot-icon"
+                            class="bi bi-file-plus"
+                            style="
+                              font-size: 20px;
+                              opacity: 0.3;
+                              -webkit-text-stroke-width: 0px;
+                            "
+                          ></span>
+                        </button>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                    </div>
+                    <!-- end body -->
                   </div>
                   <div class="modal-footer invisible">
                     <button

@@ -66,7 +66,7 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Teacher Notes</span>
                 <button type="button" class="btn btn-default btn-sm">
-                  <i class="bi bi-file-plus"></i>
+                  <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
@@ -79,7 +79,7 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment</span>
                 <button type="button" class="btn btn-default btn-sm">
-                  <i class="bi bi-file-plus"></i>
+                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
               <table class="card-table table">
@@ -112,7 +112,7 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment Answer</span>
                 <button type="button" class="btn btn-default btn-sm">
-                  <i class="bi bi-file-plus"></i>
+                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
               <table class="card-table table">
@@ -145,7 +145,7 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Zoom Link</span>
                 <button type="button" class="btn btn-default btn-sm">
-                  <i class="bi bi-file-plus"></i>
+                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
@@ -158,7 +158,7 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Class Video</span>
                 <button type="button" class="btn btn-default btn-sm">
-                  <i class="bi bi-file-plus"></i>
+                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
