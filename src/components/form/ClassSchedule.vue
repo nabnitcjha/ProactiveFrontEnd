@@ -202,6 +202,9 @@ export default {
 
       endDate = this.dateFormater(this.classStartDate);
 
+      var class_end_date = startDate.add(repeatDays, 'days').format("YYYY-MM-DD");
+      var duration = startDate+" - "+class_end_date;
+
       this.repeatLastDate.setDate(this.classStartDate.getDate() + repeatDays);
 
       startTime = this.timeFormater(this.classStartTime);
@@ -212,7 +215,8 @@ export default {
 
       slotTimes.push({
         startDate: startDate,
-        endDate: endDate
+        endDate: endDate,
+        duration:duration
       });
 
       let strtDate = this.classStartDate.setDate(
@@ -238,7 +242,8 @@ export default {
 
           slotTimes.push({
             startDate: startDate,
-            endDate: endDate
+            endDate: endDate,
+            duration:duration
           });
         }
 

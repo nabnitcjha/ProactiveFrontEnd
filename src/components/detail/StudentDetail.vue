@@ -154,11 +154,21 @@
                                 <ul class="list-group">
                                   <li class="list-group-item">
                                     <b>START : </b
-                                    >{{ time_am_pm(class_info.start_date) }}
+                                    >{{ timeFormater(class_info.start_date) }}
                                   </li>
                                   <li class="list-group-item">
                                     <b>END : </b
-                                    >{{ time_am_pm(class_info.end_date) }}
+                                    >{{ timeFormater(class_info.end_date) }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>CLASS DAY :</b
+                                    >{{ class_info.description }}
+                                  </li>
+                                  <li class="list-group-item">
+                                    <b>DURATION</b><span
+                                      class="badge rounded-pill text-bg-warning mr-2"
+                                      >{{ 'math' }}</span
+                                    >
                                   </li>
                                   <li class="list-group-item">
                                     <b>DESCRIPTION :</b
