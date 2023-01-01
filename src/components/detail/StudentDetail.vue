@@ -161,7 +161,7 @@
                                     >{{ timeFormater(class_info.end_date) }}
                                   </li>
                                   <li class="list-group-item">
-                                    <b>CLASS DAY :</b
+                                    <b>CLASS DAY : </b
                                     ><span
                                       class="badge rounded-pill text-bg-warning mr-2"
                                       v-for="(
