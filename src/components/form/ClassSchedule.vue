@@ -201,12 +201,12 @@ export default {
       startDate = this.dateFormater(this.classStartDate);
 
       endDate = this.dateFormater(this.classStartDate);
-
-      var class_end_date = startDate.add(repeatDays, 'days').format("YYYY-MM-DD");
-      var duration = startDate+" - "+class_end_date;
-
+     
       this.repeatLastDate.setDate(this.classStartDate.getDate() + repeatDays);
 
+      var class_end_date = this.dateFormater(this.repeatLastDate);
+      var duration = startDate+" - "+class_end_date;
+      
       startTime = this.timeFormater(this.classStartTime);
       endTime = this.timeFormater(this.classEndTime);
 
