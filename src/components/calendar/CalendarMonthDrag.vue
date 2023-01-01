@@ -60,7 +60,7 @@
             ></button>
           </div>
           <div class="modal-body">...</div>
-          <div class="modal-footer">
+          <div class="modal-footer invisible">
             <button
               type="button"
               class="btn btn-secondary"
