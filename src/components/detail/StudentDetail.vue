@@ -226,11 +226,11 @@
                                     <b>PHONE : </b>{{ thr_info.phone }}
                                   </li>
                                   <li class="list-group-item">
-                                    <span
+                                    <b>SUBJECT : </b> <span
                                       class="badge rounded-pill text-bg-warning mr-2"
                                       v-for="(
                                         tch_sub_info, index
-                                      ) in profile_overview.teacher_info
+                                      ) in thr_info
                                         .subject"
                                       :key="index"
                                       >{{ tch_sub_info.name }}</span
