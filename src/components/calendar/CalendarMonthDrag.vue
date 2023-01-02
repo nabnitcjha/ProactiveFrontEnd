@@ -66,7 +66,7 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <span>Teacher Notes</span>
-                <button type="button" class="btn btn-default btn-sm">
+                <button type="button" class="btn btn-default btn-sm" @click.stop="openNotesModal">
                   <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
                 </button>
               </div>
@@ -191,6 +191,7 @@
 import moment from "moment";
 export default {
   data: () => ({
+    showNoteModel: false,
     rightSidebar: false,
     userType: "",
     isStudent: false,
@@ -222,6 +223,9 @@ export default {
   }),
 
   methods: {
+    openNotesModal() {
+      this.showNoteModel = true;
+    },
     getSlotInfo(slot){
       
     },
