@@ -276,10 +276,10 @@ export default {
   methods: {
    async saveResourceFile() {
       let formData = new FormData();
-      formData.append("resource_file_info[teacher_id]", this.currentTeacherId);
-      formData.append("resource_file_info[assessment_file]", this.assessment_file);
+      formData.append("teacher_id", this.currentTeacherId);
+      formData.append("assessment_file", this.assessment_file);
 
-      let urlText = "resourceFile";
+      let urlText = "timetable/" + this.currentSlotId + "/resourceFile";
       let patchResponse = await this.post(urlText, formData);
 
     },
