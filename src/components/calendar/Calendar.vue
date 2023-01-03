@@ -136,8 +136,12 @@
                     <!-- start body -->
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
-                        <span>Teacher Notes</span>
-                        <button type="button" class="btn btn-default btn-sm">
+                        <span>Study Resources</span>
+                        <button
+                          type="button"
+                          class="btn btn-default btn-sm"
+                          @click.stop="openStudyResources"
+                        >
                           <span
                             id="boot-icon"
                             class="bi bi-file-plus"
@@ -150,6 +154,25 @@
                         </button>
                       </div>
                       <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <label for="file" class="input input-file">
+                            <div class="button">
+                              <input
+                                type="file"
+                                class="form-control form-control-sm"
+                                name="file"
+                                onchange="this.parentNode.nextSibling.value = this.value"
+                              />
+                              Browse File
+                            </div>
+                            <input
+                              type="text"
+                              class="form-control form-control-sm"
+                              placeholder="upload study resources"
+                              readonly=""
+                            />
+                          </label>
+                        </li>
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Vestibulum at eros</li>
@@ -304,6 +327,7 @@ import { loginInfoStore } from "../../stores/loginInfo";
 import { mapState } from "pinia";
 export default {
   data: () => ({
+    showStudyResourcesModel: false,
     userType: "",
     showDeleteModel: false,
     currentEvent: {},
@@ -362,6 +386,9 @@ export default {
     this.$refs.calendar.checkChange();
   },
   methods: {
+    openStudyResources() {
+      this.showStudyResourcesModel = true;
+    },
     copyZoomLink() {
       /* Get the text field */
       var copyText = document.getElementById("zoomlink");

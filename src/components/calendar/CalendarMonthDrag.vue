@@ -65,11 +65,11 @@
             <!-- start body -->
             <div class="card">
               <div class="card-header d-flex justify-content-between">
-                <span>Teacher Notes</span>
+                <span>Study Resources</span>
                 <button
                   type="button"
                   class="btn btn-default btn-sm"
-                  @click.stop="openNotesModal"
+                  @click.stop="openStudyResources"
                 >
                   <span
                     id="boot-icon"
@@ -97,7 +97,7 @@
                     <input
                       type="text"
                       class="form-control form-control-sm"
-                      placeholder="upload teacher notes"
+                      placeholder="upload study resources"
                       readonly=""
                     />
                   </label>
@@ -267,7 +267,7 @@
 import moment from "moment";
 export default {
   data: () => ({
-    showNoteModel: false,
+    showStudyResourcesModel: false,
     rightSidebar: false,
     userType: "",
     isStudent: false,
@@ -313,8 +313,8 @@ export default {
       /* Alert the copied text */
       // alert( copyText.value);
     },
-    openNotesModal() {
-      this.showNoteModel = true;
+    openStudyResources() {
+      this.showStudyResourcesModel = true;
     },
     getSlotInfo(slot) {},
     deleteSlot() {
