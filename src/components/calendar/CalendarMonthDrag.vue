@@ -75,7 +75,7 @@
                         type="file"
                         class="form-control form-control-sm"
                         name="file"
-                        onchange="this.parentNode.nextSibling.value = this.value"
+                        @change="handleResourceFile"
                       />
                       Browse File
                     </div>
@@ -258,9 +258,15 @@ export default {
     createEvent: null,
     createStart: null,
     extendOriginal: null,
+    assessment_file:'',
   }),
 
   methods: {
+    handleResourceFile(e){
+      e.preventDefault();
+      this.assessment_file =
+        document.querySelector("input[type=file]").files[0];
+    },
     copyZoomLink() {
       /* Get the text field */
       var copyText = document.getElementById("zoomlink");
