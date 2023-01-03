@@ -76,4 +76,15 @@ span.custom-checkbox {
   outline: none!important;
   box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%)!important;
 }
-
+.study-resource .input-file , .assignment .input-file{
+  width: 85%!important;
+}
+.study-resource , .assignment{
+  display: flex!important;
+}
+.cstm-btn{
+  color: #fff!important;
+    height: 27px!important;
+    line-height: 13px!important;
+    margin-left: 5px!important;
+}

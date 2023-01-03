@@ -228,7 +228,7 @@
                         <span>Zoom Link</span>
                       </div>
                       <ul class="list-group list-group-flush">
-                        <div class="form-group col-sm-12 col-lg-12">
+                        <div class="form-group col-sm-12 col-lg-12 d-flex">
                           <div class="zoom-link">
                             <input
                               v-model="zoomLink"
@@ -244,10 +244,10 @@
                             ></i>
                           </div>
                           <button
-                            class="btn btn-warning btn-session pointer-hand col-3 mt-2 mx-auto go-to-link"
+                            class="btn btn-warning btn-session pointer-hand col-3 mt-2 mx-auto go-to-link cstm-btn"
                             @click.stop="openLink"
                           >
-                            Go to Link
+                            Go
                           </button>
                         </div>
                       </ul>

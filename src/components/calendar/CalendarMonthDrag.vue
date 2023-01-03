@@ -68,7 +68,7 @@
                 <span>Study Resources</span>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+                <li class="list-group-item study-resource">
                   <label for="file" class="input input-file">
                     <div class="button">
                       <input
@@ -86,6 +86,7 @@
                       readonly=""
                     />
                   </label>
+                  <button type="button" class="btn btn-success cstm-btn">save</button>
                 </li>
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -97,7 +98,7 @@
                 <span>Assignment</span>
               </div>
               <div>
-                <li class="list-group-item">
+                <li class="list-group-item assignment">
                   <label for="file" class="input input-file">
                     <div class="button">
                       <input
@@ -115,6 +116,7 @@
                       readonly=""
                     />
                   </label>
+                  <button type="button" class="btn btn-success cstm-btn">Save</button>
                 </li>
               </div>
               <table class="card-table table">
@@ -178,7 +180,7 @@
                 <span>Zoom Link</span>
               </div>
               <ul class="list-group list-group-flush">
-                <div class="form-group col-sm-12 col-lg-12">
+                <div class="form-group col-sm-12 col-lg-12 d-flex">
                   <div class="zoom-link">
                     <input
                       v-model="zoomLink"
@@ -191,10 +193,10 @@
                     <i class="bi bi-clipboard" @click.stop="copyZoomLink"></i>
                   </div>
                   <button
-                    class="btn btn-warning btn-session pointer-hand col-3 mt-2 mx-auto go-to-link"
+                    class="btn btn-warning btn-session pointer-hand col-3 mt-2 mx-auto go-to-link cstm-btn"
                     @click.stop="openLink"
                   >
-                    Go to Link
+                    Go
                   </button>
                 </div>
               </ul>
