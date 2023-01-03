@@ -81,6 +81,7 @@ span.custom-checkbox {
 }
 .study-resource , .assignment{
   display: flex!important;
+  flex-direction: column!important;
 }
 .cstm-btn{
   color: #fff!important;

@@ -69,30 +69,34 @@
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item study-resource">
-                  <label for="file" class="input input-file">
-                    <div class="button">
+                  <div class="col-12 d-flex">
+                    <label for="file" class="input input-file">
+                      <div class="button">
+                        <input
+                          type="file"
+                          class="form-control form-control-sm"
+                          name="file"
+                          @change="handleResourceFile"
+                        />
+                        Browse File
+                      </div>
                       <input
-                        type="file"
+                        type="text"
                         class="form-control form-control-sm"
-                        name="file"
-                        @change="handleResourceFile"
+                        placeholder="upload study resources"
+                        readonly=""
                       />
-                      Browse File
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      placeholder="upload study resources"
-                      readonly=""
-                    />
-                  </label>
-                  <button
-                    type="button"
-                    class="btn btn-success cstm-btn"
-                    @click.stop="saveResourceFile"
-                  >
-                    save
-                  </button>
+                    </label>
+                    <button
+                      type="button"
+                      class="btn btn-success cstm-btn"
+                      @click.stop="saveResourceFile"
+                    >
+                      save
+                    </button>
+                  </div>
+
+                  <span>{{ resourceFileName }}</span>
                 </li>
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -105,26 +109,28 @@
               </div>
               <div>
                 <li class="list-group-item assignment">
-                  <label for="file" class="input input-file">
-                    <div class="button">
+                  <div class="col-12 d-flex">
+                    <label for="file" class="input input-file">
+                      <div class="button">
+                        <input
+                          type="file"
+                          class="form-control form-control-sm"
+                          name="file"
+                          onchange="this.parentNode.nextSibling.value = this.value"
+                        />
+                        Browse File
+                      </div>
                       <input
-                        type="file"
+                        type="text"
                         class="form-control form-control-sm"
-                        name="file"
-                        onchange="this.parentNode.nextSibling.value = this.value"
+                        placeholder="upload assignment"
+                        readonly=""
                       />
-                      Browse File
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      placeholder="upload assignment"
-                      readonly=""
-                    />
-                  </label>
-                  <button type="button" class="btn btn-success cstm-btn">
-                    Save
-                  </button>
+                    </label>
+                    <button type="button" class="btn btn-success cstm-btn">
+                      Save
+                    </button>
+                  </div>
                 </li>
               </div>
               <table class="card-table table">
@@ -271,22 +277,23 @@ export default {
     assessment_file: "",
     currentSlotId: "",
     currentTeacherId: "",
+    resourceFileName: "",
   }),
 
   methods: {
-   async saveResourceFile() {
+    async saveResourceFile() {
       let formData = new FormData();
       formData.append("teacher_id", this.currentTeacherId);
       formData.append("assessment_file", this.assessment_file);
 
       let urlText = "timetable/" + this.currentSlotId + "/resourceFile";
       let patchResponse = await this.post(urlText, formData);
-
     },
     handleResourceFile(e) {
       e.preventDefault();
       this.assessment_file =
         document.querySelector("input[type=file]").files[0];
+      this.resourceFileName = this.assessment_file.name;
     },
     copyZoomLink() {
       /* Get the text field */
