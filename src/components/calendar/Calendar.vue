@@ -240,43 +240,38 @@
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
                         <span>Zoom Link</span>
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span
-                            id="boot-icon"
-                            class="bi bi-file-plus"
-                            style="
-                              font-size: 20px;
-                              opacity: 0.3;
-                              -webkit-text-stroke-width: 0px;
-                            "
-                          ></span>
-                        </button>
                       </div>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <div class="form-group col-sm-12 col-lg-12">
+                          <div class="zoom-link">
+                            <input
+                              v-model="zoomLink"
+                              type="text"
+                              class="form-control remove-border"
+                              id="zoomlink"
+                              placeholder="add link"
+                              @input="saveZoomLink"
+                            />
+                            <i
+                              class="bi bi-clipboard"
+                              @click.stop="copyZoomLink"
+                            ></i>
+                          </div>
+                          <button
+                            class="btn btn-warning btn-session pointer-hand col-3 mt-2 mx-auto go-to-link"
+                            @click.stop="openLink"
+                          >
+                            Go to Link
+                          </button>
+                        </div>
                       </ul>
                     </div>
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
-                        <span>Class Video</span>
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span
-                            id="boot-icon"
-                            class="bi bi-file-plus"
-                            style="
-                              font-size: 20px;
-                              opacity: 0.3;
-                              -webkit-text-stroke-width: 0px;
-                            "
-                          ></span>
-                        </button>
+                        <span>Completed Class Video</span>
                       </div>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item"></li>
                       </ul>
                     </div>
                     <!-- end body -->
@@ -754,72 +749,70 @@ export default {
   },
 };
 </script>
-<style>  
-.input-file {  
-  position: relative;  
-  display: block;  
-  font-weight: 400;  
-}  
-  
-.input-file .button {  
-  position: absolute;  
-  top: 4px;  
-  right: 4px;  
-  float: none;  
-  height: 22px;  
-  margin: 0;  
-  padding: 0 14px;  
-  font-size: 13px;  
-  line-height: 22px;  
-  background-color: #3276B1;  
-  opacity: .8;  
-  transition: opacity .2s;  
-  -o-transition: opacity .2s;  
-  -ms-transition: opacity .2s;  
-  -moz-transition: opacity .2s;  
-  -webkit-transition: opacity .2s;  
-  outline: 0;  
-  border: 0;  
-  text-decoration: none;  
-  color: #fff;  
-  cursor: pointer;  
-}  
- 
- 
-.input-file .button input {  
-  position: absolute;  
-  top: 0;  
-  right: 0;  
-  padding: 0;  
-  font-size: 30px;  
-  cursor: pointer;  
-  opacity: 0;  
-}  
-.input input {  
-    display: block;  
-    box-sizing: border-box;  
-    -moz-box-sizing: border-box;  
-    width: 100%;  
-    height: 28px;  
-    padding: 8px 10px;  
-    outline: 0;  
-    border-width: 1px;  
-    border-style: solid;  
-    border-radius: 0;  
-    background: #fff;  
-    font: 13px/16px 'Open Sans', Helvetica,Arial, sans-serif;  
-    color: #404040;  
-    appearance: normal;  
-    -moz-appearance: none;  
-    -webkit-appearance: none;  
-}   
+<style>
+.input-file {
+  position: relative;
+  display: block;
+  font-weight: 400;
+}
 
-h1 {  
-font-family: 'Indie Flower', cursive;  
-font-size: 32px;  
-  color: #03A9F4;  
-  font-weight: bold;  
-  margin-bottom: 20px;  
-}  
-</style>  
+.input-file .button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  float: none;
+  height: 22px;
+  margin: 0;
+  padding: 0 14px;
+  font-size: 13px;
+  line-height: 22px;
+  background-color: #3276b1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
 
+.input-file .button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0;
+}
+.input input {
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  padding: 8px 10px;
+  outline: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+  background: #fff;
+  font: 13px/16px "Open Sans", Helvetica, Arial, sans-serif;
+  color: #404040;
+  appearance: normal;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+h1 {
+  font-family: "Indie Flower", cursive;
+  font-size: 32px;
+  color: #03a9f4;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+</style>

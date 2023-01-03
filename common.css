@@ -57,3 +57,23 @@ span.custom-checkbox {
 .modal.show.modal-tall .modal-dialog {
   transform: none;
 }
+
+.zoom-link{
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border: 1px solid #4e4e4e59;
+  border-radius: 5px;
+}
+
+.remove-border{
+  border:unset!important;
+  padding-left: 0px!important;
+}
+.remove-border:focus{
+  border: unset!important;
+  border-color: unset!important;
+  outline: none!important;
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%)!important;
+}
+
