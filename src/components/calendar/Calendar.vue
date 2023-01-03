@@ -137,21 +137,6 @@
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
                         <span>Study Resources</span>
-                        <button
-                          type="button"
-                          class="btn btn-default btn-sm"
-                          @click.stop="openStudyResources"
-                        >
-                          <span
-                            id="boot-icon"
-                            class="bi bi-file-plus"
-                            style="
-                              font-size: 20px;
-                              opacity: 0.3;
-                              -webkit-text-stroke-width: 0px;
-                            "
-                          ></span>
-                        </button>
                       </div>
                       <ul class="list-group list-group-flush">
                         <li class="list-group-item">
@@ -181,17 +166,6 @@
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
                         <span>Assignment</span>
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span
-                            id="boot-icon"
-                            class="bi bi-file-plus"
-                            style="
-                              font-size: 20px;
-                              opacity: 0.3;
-                              -webkit-text-stroke-width: 0px;
-                            "
-                          ></span>
-                        </button>
                       </div>
                       <table class="card-table table">
                         <thead>
@@ -222,17 +196,6 @@
                     <div class="card">
                       <div class="card-header d-flex justify-content-between">
                         <span>Assignment Answer</span>
-                        <button type="button" class="btn btn-default btn-sm">
-                          <span
-                            id="boot-icon"
-                            class="bi bi-file-plus"
-                            style="
-                              font-size: 20px;
-                              opacity: 0.3;
-                              -webkit-text-stroke-width: 0px;
-                            "
-                          ></span>
-                        </button>
                       </div>
                       <table class="card-table table">
                         <thead>
@@ -327,7 +290,6 @@ import { loginInfoStore } from "../../stores/loginInfo";
 import { mapState } from "pinia";
 export default {
   data: () => ({
-    showStudyResourcesModel: false,
     userType: "",
     showDeleteModel: false,
     currentEvent: {},
@@ -386,9 +348,7 @@ export default {
     this.$refs.calendar.checkChange();
   },
   methods: {
-    openStudyResources() {
-      this.showStudyResourcesModel = true;
-    },
+
     copyZoomLink() {
       /* Get the text field */
       var copyText = document.getElementById("zoomlink");

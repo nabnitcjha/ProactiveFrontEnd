@@ -66,21 +66,6 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <span>Study Resources</span>
-                <button
-                  type="button"
-                  class="btn btn-default btn-sm"
-                  @click.stop="openStudyResources"
-                >
-                  <span
-                    id="boot-icon"
-                    class="bi bi-file-plus"
-                    style="
-                      font-size: 20px;
-                      opacity: 0.3;
-                      -webkit-text-stroke-width: 0px;
-                    "
-                  ></span>
-                </button>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -110,17 +95,6 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment</span>
-                <button type="button" class="btn btn-default btn-sm">
-                  <span
-                    id="boot-icon"
-                    class="bi bi-file-plus"
-                    style="
-                      font-size: 20px;
-                      opacity: 0.3;
-                      -webkit-text-stroke-width: 0px;
-                    "
-                  ></span>
-                </button>
               </div>
               <div>
                 <li class="list-group-item">
@@ -172,17 +146,6 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment Answer</span>
-                <button type="button" class="btn btn-default btn-sm">
-                  <span
-                    id="boot-icon"
-                    class="bi bi-file-plus"
-                    style="
-                      font-size: 20px;
-                      opacity: 0.3;
-                      -webkit-text-stroke-width: 0px;
-                    "
-                  ></span>
-                </button>
               </div>
               <table class="card-table table">
                 <thead>
@@ -267,7 +230,6 @@
 import moment from "moment";
 export default {
   data: () => ({
-    showStudyResourcesModel: false,
     rightSidebar: false,
     userType: "",
     isStudent: false,
@@ -312,9 +274,6 @@ export default {
 
       /* Alert the copied text */
       // alert( copyText.value);
-    },
-    openStudyResources() {
-      this.showStudyResourcesModel = true;
     },
     getSlotInfo(slot) {},
     deleteSlot() {
