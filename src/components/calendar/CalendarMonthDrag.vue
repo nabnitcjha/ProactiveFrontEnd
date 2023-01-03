@@ -86,7 +86,13 @@
                       readonly=""
                     />
                   </label>
-                  <button type="button" class="btn btn-success cstm-btn">save</button>
+                  <button
+                    type="button"
+                    class="btn btn-success cstm-btn"
+                    @click.stop="saveResourceFile"
+                  >
+                    save
+                  </button>
                 </li>
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -116,7 +122,9 @@
                       readonly=""
                     />
                   </label>
-                  <button type="button" class="btn btn-success cstm-btn">Save</button>
+                  <button type="button" class="btn btn-success cstm-btn">
+                    Save
+                  </button>
                 </li>
               </div>
               <table class="card-table table">
@@ -260,11 +268,22 @@ export default {
     createEvent: null,
     createStart: null,
     extendOriginal: null,
-    assessment_file:'',
+    assessment_file: "",
+    currentSlotId: "",
+    currentTeacherId: "",
   }),
 
   methods: {
-    handleResourceFile(e){
+   async saveResourceFile() {
+      let formData = new FormData();
+      formData.append("resource_file_info[teacher_id]", this.currentTeacherId);
+      formData.append("resource_file_info[assessment_file]", this.assessment_file);
+
+      let urlText = "resourceFile";
+      let patchResponse = await this.post(urlText, formData);
+
+    },
+    handleResourceFile(e) {
       e.preventDefault();
       this.assessment_file =
         document.querySelector("input[type=file]").files[0];
@@ -309,6 +328,8 @@ export default {
       this.$emit("open-edit");
     },
     showEvent({ nativeEvent, event }) {
+      this.currentSlotId = event.class_unique_id;
+      this.currentTeacherId = event.teacher_id;
       this.$emit("current-zoom-link", event);
       const open = () => {
         this.selectedEvent = event;
@@ -465,7 +486,6 @@ export default {
       let postResponse = {};
       let urlText = "getTimetables";
       postResponse = await this.get(urlText);
-
       this.slots = postResponse.data.data;
       this.slots.map((data) => {
         events.push({
@@ -474,14 +494,12 @@ export default {
           color: this.colors[this.rnd(0, this.colors.length - 1)],
           start: new Date(data.start_date),
           end: new Date(data.end_date),
-          timed: data.start_date,
+          time: data.duration,
           event_message: data.event_message,
-          students: data.student,
-          teacher: data.teacher,
-          session_id: data.session_id,
+          teacher_id: data.teacher_id,
+          class_unique_id: data.class_unique_id,
           zoomLink: data.zoomLink,
-          teacher: data.teacher,
-          subject: data.subject,
+          subject_id: data.subject_id,
         });
       });
 
