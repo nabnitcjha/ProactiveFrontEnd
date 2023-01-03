@@ -66,11 +66,42 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <span>Teacher Notes</span>
-                <button type="button" class="btn btn-default btn-sm" @click.stop="openNotesModal">
-                  <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm"
+                  @click.stop="openNotesModal"
+                >
+                  <span
+                    id="boot-icon"
+                    class="bi bi-file-plus"
+                    style="
+                      font-size: 20px;
+                      opacity: 0.3;
+                      -webkit-text-stroke-width: 0px;
+                    "
+                  ></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <label for="file" class="input input-file">
+                    <div class="button">
+                      <input
+                        type="file"
+                        class="form-control form-control-sm"
+                        name="file"
+                        onchange="this.parentNode.nextSibling.value = this.value"
+                      />
+                      Browse File
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      placeholder="upload teacher notes"
+                      readonly=""
+                    />
+                  </label>
+                </li>
                 <li class="list-group-item">Cras justo odio</li>
                 <li class="list-group-item">Dapibus ac facilisis in</li>
                 <li class="list-group-item">Vestibulum at eros</li>
@@ -80,10 +111,40 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment</span>
                 <button type="button" class="btn btn-default btn-sm">
-                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
+                  <span
+                    id="boot-icon"
+                    class="bi bi-file-plus"
+                    style="
+                      font-size: 20px;
+                      opacity: 0.3;
+                      -webkit-text-stroke-width: 0px;
+                    "
+                  ></span>
                 </button>
               </div>
+              <div>
+                <li class="list-group-item">
+                  <label for="file" class="input input-file">
+                    <div class="button">
+                      <input
+                        type="file"
+                        class="form-control form-control-sm"
+                        name="file"
+                        onchange="this.parentNode.nextSibling.value = this.value"
+                      />
+                      Browse File
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      placeholder="upload assignment"
+                      readonly=""
+                    />
+                  </label>
+                </li>
+              </div>
               <table class="card-table table">
+              
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
@@ -113,7 +174,15 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Assignment Answer</span>
                 <button type="button" class="btn btn-default btn-sm">
-                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
+                  <span
+                    id="boot-icon"
+                    class="bi bi-file-plus"
+                    style="
+                      font-size: 20px;
+                      opacity: 0.3;
+                      -webkit-text-stroke-width: 0px;
+                    "
+                  ></span>
                 </button>
               </div>
               <table class="card-table table">
@@ -146,7 +215,15 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Zoom Link</span>
                 <button type="button" class="btn btn-default btn-sm">
-                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
+                  <span
+                    id="boot-icon"
+                    class="bi bi-file-plus"
+                    style="
+                      font-size: 20px;
+                      opacity: 0.3;
+                      -webkit-text-stroke-width: 0px;
+                    "
+                  ></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
@@ -159,7 +236,15 @@
               <div class="card-header d-flex justify-content-between">
                 <span>Class Video</span>
                 <button type="button" class="btn btn-default btn-sm">
-                 <span id="boot-icon" class="bi bi-file-plus" style="font-size: 20px; opacity: 0.3; -webkit-text-stroke-width: 0px;"></span>
+                  <span
+                    id="boot-icon"
+                    class="bi bi-file-plus"
+                    style="
+                      font-size: 20px;
+                      opacity: 0.3;
+                      -webkit-text-stroke-width: 0px;
+                    "
+                  ></span>
                 </button>
               </div>
               <ul class="list-group list-group-flush">
@@ -226,9 +311,7 @@ export default {
     openNotesModal() {
       this.showNoteModel = true;
     },
-    getSlotInfo(slot){
-      
-    },
+    getSlotInfo(slot) {},
     deleteSlot() {
       this.$emit("delete-slot");
     },
@@ -445,3 +528,70 @@ export default {
   },
 };
 </script>
+<style>  
+.input-file {  
+  position: relative;  
+  display: block;  
+  font-weight: 400;  
+}  
+  
+.input-file .button {  
+  position: absolute;  
+  top: 4px;  
+  right: 4px;  
+  float: none;  
+  height: 22px;  
+  margin: 0;  
+  padding: 0 14px;  
+  font-size: 13px;  
+  line-height: 22px;  
+  background-color: #3276B1;  
+  opacity: .8;  
+  transition: opacity .2s;  
+  -o-transition: opacity .2s;  
+  -ms-transition: opacity .2s;  
+  -moz-transition: opacity .2s;  
+  -webkit-transition: opacity .2s;  
+  outline: 0;  
+  border: 0;  
+  text-decoration: none;  
+  color: #fff;  
+  cursor: pointer;  
+}  
+ 
+ 
+.input-file .button input {  
+  position: absolute;  
+  top: 0;  
+  right: 0;  
+  padding: 0;  
+  font-size: 30px;  
+  cursor: pointer;  
+  opacity: 0;  
+}  
+.input input {  
+    display: block;  
+    box-sizing: border-box;  
+    -moz-box-sizing: border-box;  
+    width: 100%;  
+    height: 28px;  
+    padding: 8px 10px;  
+    outline: 0;  
+    border-width: 1px;  
+    border-style: solid;  
+    border-radius: 0;  
+    background: #fff;  
+    font: 13px/16px 'Open Sans', Helvetica,Arial, sans-serif;  
+    color: #404040;  
+    appearance: normal;  
+    -moz-appearance: none;  
+    -webkit-appearance: none;  
+}   
+h1 {  
+font-family: 'Indie Flower', cursive;  
+font-size: 32px;  
+  color: #03A9F4;  
+  font-weight: bold;  
+  margin-bottom: 20px;  
+}  
+</style>  
