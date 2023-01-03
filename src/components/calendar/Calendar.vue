@@ -362,6 +362,20 @@ export default {
     this.$refs.calendar.checkChange();
   },
   methods: {
+    copyZoomLink() {
+      /* Get the text field */
+      var copyText = document.getElementById("zoomlink");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+
+      /* Alert the copied text */
+      // alert( copyText.value);
+    },
     async confirmDelete() {
       let isDelete = "";
       isDelete = await this.deleteRecord(
