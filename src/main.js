@@ -21,15 +21,13 @@ import "vue2-datepicker/index.css";
 
 // import Vuetify from 'vuetify'
 
-import vuetify from './plugins/vuetify'
-import 'vuetify/dist/vuetify.min.css'
+import vuetify from "./plugins/vuetify";
+import "vuetify/dist/vuetify.min.css";
 
 // common component
 import DeleteModal from "./components/common/DeleteModal.vue";
 import ClassSchedule from "./components/form/ClassSchedule.vue";
 import SlotCalendar from "./components/calendar/Calendar.vue";
-
-
 
 // Install VeeValidate rules and localization
 Object.keys(rules).forEach((rule) => {
@@ -47,8 +45,6 @@ Vue.component("delete-modal", DeleteModal);
 Vue.component("class-schedule", ClassSchedule);
 Vue.component("slot-calendar", SlotCalendar);
 
-
-
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import Fragment from "vue-fragment";
@@ -58,8 +54,6 @@ import piniaPersist from "pinia-plugin-persist";
 
 // Choose Locale
 moment.locale("en");
-
-
 
 Vue.use(PiniaVuePlugin);
 const pinia = createPinia();
@@ -80,6 +74,14 @@ new Vue({
   components: { Fragment },
   router,
   pinia,
+  created() {
+    window.Echo.private("chat").listen("MessageSent", (e) => {
+      this.messages.push({
+        message: e.message.message,
+        user: e.user,
+      });
+    });
+  },
   methods: {
     changeRoute(route) {
       this.$router.push(route);

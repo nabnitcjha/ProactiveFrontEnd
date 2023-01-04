@@ -15,6 +15,12 @@ const routes = [
     name: 'dashboard',
     component: () => import('../views/Dashboard.vue')
   },
+  // chat
+  {
+    path: '/cha',
+    name: 'cha',
+    component: () => import('../views/Chat.vue')
+  },
    // calendar
    {
     path: '/calendar',
