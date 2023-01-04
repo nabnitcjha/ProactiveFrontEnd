@@ -1,5 +1,5 @@
 <template>
-    <Chat :mode="mode" />
+    <Chat :user="mode" />
  </template>
  
  <script>

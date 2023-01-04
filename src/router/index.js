@@ -17,8 +17,8 @@ const routes = [
   },
   // chat
   {
-    path: '/cha',
-    name: 'cha',
+    path: '/chat',
+    name: 'chat',
     component: () => import('../views/Chat.vue')
   },
    // calendar
