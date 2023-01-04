@@ -17,6 +17,7 @@
     </div>
   </template>
   <script>
+  import axios from "axios";
   export default {
     props: ["user"],
     data() {
@@ -35,17 +36,18 @@
     //   },
 
       fetchMessages() {
-            axios.get('/messages').then(response => {
+            axios.get('http://127.0.0.1:8000/messages').then(response => {
                 this.messages = response.data;
             });
         },
         addMessage() {
+            debugger;
             let formData = {};
             formData['message']=this.newMessage;
+            let urlText = 'messages';
             formData['id']=1;
-            axios.post('/messages', formData).then(response => {
-                console.log(response.data);
-            });
+            let postResponse = this.post(urlText, formData);
+            debugger;
         }
     },
   };

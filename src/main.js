@@ -76,6 +76,7 @@ new Vue({
   pinia,
   created() {
     window.Echo.private("chat").listen("MessageSent", (e) => {
+      debugger;
       this.messages.push({
         message: e.message.message,
         user: e.user,

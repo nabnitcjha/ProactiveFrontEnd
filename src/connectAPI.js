@@ -14,8 +14,10 @@ export default {
     ...mapActions(loginInfoStore, ["setAuthenticate"]),
 
     post(urlText, formData) {
+      debugger;
       let url = this.apiUrl + "/api/" + urlText;
       let postResponse = axios.post(url, formData).then((response) => {
+        debugger;
         return response;
       });
 
